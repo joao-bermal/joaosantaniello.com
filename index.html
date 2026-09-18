@@ -123,6 +123,11 @@
   .showcase p { margin: 0 0 8px; color: var(--on-dark-muted); font-size: 15px; }
   .showcase .quote { font-style: italic; color: var(--on-dark); font-size: 15px; margin-top: 10px; }
 
+  .extra-card { max-width: 720px; }
+  .extra-card h3 { margin: 14px 0 0; font-size: 20px; }
+  .extra-card p { margin: 8px 0 0; font-size: 15px; }
+  .extra-card .price-table { margin-top: 20px; }
+
   .about-card { background: var(--surface-alt); border-radius: 18px; padding: 46px; max-width: 720px; display: flex; flex-direction: column; gap: 16px; }
   .about-card h2 { margin: 0; font-size: 27px; }
   .about-card p { margin: 0; font-size: 16px; }
@@ -161,6 +166,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#projetos">Projetos</a>
       <a href="#sobre">Sobre</a>
+      <a href="#extras">Extras</a>
       <a class="btn btn-primary btn-sm" href="https://wa.me/5512991158100">Falar no WhatsApp</a>
     </nav>
   </div>
@@ -184,10 +190,10 @@
     <div class="wrap">
       <div class="section-head">
         <h2 class="display">O que eu resolvo</h2>
-        <p class="muted">Quatro frentes de atendimento, do problema do dia a dia ao projeto que precisa nascer bem feito.</p>
+        <p class="muted">Três frentes de atendimento, do problema do dia a dia ao projeto que precisa nascer bem feito.</p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3">
 
         <div class="card service-card">
           <svg class="icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -242,23 +248,6 @@
             <li>Música e jingles compostos, arranjados e mixados com critério de músico</li>
             <li>Roteiro e copy de apoio à marca</li>
             <li>Refinamento rápido com base no seu feedback</li>
-          </ul>
-        </div>
-
-        <div class="card service-card">
-          <svg class="icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 3h5"></path>
-            <path d="M8.5 3v10"></path>
-            <circle cx="8.5" cy="16.5" r="4"></circle>
-            <path d="M6.5 6.5h4"></path>
-          </svg>
-          <h3 class="display" style="margin:0;font-size:20px;">Manutenção de instrumentos</h3>
-          <p class="muted" style="margin:0;font-size:15px;">Sou músico e cuido do meu próprio instrumento no dia a dia. Não tenho uma bancada de luthieria tradicional, mas resolvo bem os cuidados básicos que a maioria dos músicos precisa com frequência.</p>
-          <ul>
-            <li>Higienização e limpeza geral do instrumento</li>
-            <li>Troca de cordas (violão, guitarra ou baixo)</li>
-            <li>Regulagem básica de altura das cordas (ação)</li>
-            <li>Diagnóstico rápido de problemas simples (traste alto, cordas velhas, captação com ruído)</li>
           </ul>
         </div>
 
@@ -398,31 +387,6 @@
           </tr>
         </table>
       </div>
-
-      <div class="card pricing-block">
-        <div class="pricing-block-head">
-          <h3 class="display">Manutenção de instrumentos</h3>
-          <span>Cuidados básicos, sem bancada de luthieria tradicional</span>
-        </div>
-        <table class="price-table">
-          <tr>
-            <td class="item">Higienização e limpeza geral<span class="note">Corpo, captadores e hardware</span></td>
-            <td class="value">R$ 40 a 60</td>
-          </tr>
-          <tr>
-            <td class="item">Troca de cordas<span class="note">Violão, guitarra ou baixo, cordas não inclusas</span></td>
-            <td class="value">R$ 30 a 50</td>
-          </tr>
-          <tr>
-            <td class="item">Regulagem básica de altura das cordas<span class="note">Ajuste de ação</span></td>
-            <td class="value">R$ 50 a 80</td>
-          </tr>
-          <tr class="highlight">
-            <td class="item">Pacote troca de cordas + regulagem<span class="note">As duas manutenções juntas</span></td>
-            <td class="value">R$ 70 a 110</td>
-          </tr>
-        </table>
-      </div>
     </div>
   </section>
 
@@ -477,6 +441,44 @@
         <p>Sou João Vitor Bermal Santaniello, engenheiro de software desde 2021, com MBA em Engenharia de Software pela USP/Esalq. Trabalho com Python, TypeScript, React e sistemas de dados no dia a dia.</p>
         <p>Também sou músico e tenho vivência em design de interface, incluindo o redesenho do visual de um dashboard corporativo para uma grande distribuidora de energia, feito no Figma. Isso muda o resultado das criações com IA: música pensada com ouvido de quem toca e identidade visual com o mesmo cuidado que aplico em produtos digitais reais, não apenas um prompt solto. Não substituo um estúdio ou uma agência de design dedicados, mas entrego um padrão de qualidade acima do genérico, com a agilidade que um processo tradicional não tem.</p>
         <p>Atendo pessoas físicas e pequenos negócios que precisam de alguém de confiança: do problema técnico do dia a dia ao projeto que precisa nascer bem feito.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="extras">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Serviços extras</h2>
+        <p class="muted">Fora do foco principal em tecnologia, mas também disponível como um adicional, caso você precise.</p>
+      </div>
+
+      <div class="card extra-card">
+        <svg class="icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h5"></path>
+          <path d="M8.5 3v10"></path>
+          <circle cx="8.5" cy="16.5" r="4"></circle>
+          <path d="M6.5 6.5h4"></path>
+        </svg>
+        <h3 class="display">Manutenção de instrumentos</h3>
+        <p class="muted">Sou músico e cuido do meu próprio instrumento no dia a dia. Não tenho uma bancada de luthieria tradicional, mas resolvo bem os cuidados básicos que você precisa com frequência.</p>
+        <table class="price-table">
+          <tr>
+            <td class="item">Higienização e limpeza geral<span class="note">Corpo, captadores e hardware</span></td>
+            <td class="value">R$ 40 a 60</td>
+          </tr>
+          <tr>
+            <td class="item">Troca de cordas<span class="note">Violão, guitarra ou baixo, cordas não inclusas</span></td>
+            <td class="value">R$ 30 a 50</td>
+          </tr>
+          <tr>
+            <td class="item">Regulagem básica de altura das cordas<span class="note">Ajuste de ação</span></td>
+            <td class="value">R$ 50 a 80</td>
+          </tr>
+          <tr class="highlight">
+            <td class="item">Pacote troca de cordas + regulagem<span class="note">As duas manutenções juntas</span></td>
+            <td class="value">R$ 70 a 110</td>
+          </tr>
+        </table>
       </div>
     </div>
   </section>
