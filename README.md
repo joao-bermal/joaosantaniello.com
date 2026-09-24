@@ -1,61 +1,53 @@
-# Site pessoal João Bermal
+# Site João Bermal
 
-Site estático de uma página só, sem build, sem framework e sem dependências. Pronto
-para deploy direto no Vercel.
+Portfólio e site de serviços, em português e inglês. Next.js 16 (App Router) com export estático: cada página vira HTML no build e o Vercel serve os arquivos.
+
+## Páginas
+
+| Rota | Conteúdo |
+|---|---|
+| `/` e `/en/` | Home: identidade visual, e-commerce e desenvolvimento, com o case Miau Atelier em destaque |
+| `/cases/miau-atelier/` e `/en/cases/miau-atelier/` | Case completo da Miau Atelier |
+| `/suporte/` | Suporte técnico, manutenção de instrumentos e criação rápida (só em português). Fica fora do menu, com link no rodapé. É o destino dos flyers. |
+
+O endereço antigo `/miau-atelier/` redireciona para `/cases/miau-atelier/` (`vercel.json`).
+
+## Onde editar
+
+| O que | Arquivo |
+|---|---|
+| Textos da home, serviços, preços "a partir de", processo, sobre | `src/content/site.ts` |
+| Trabalhos selecionados (OBSIDIAN, NAMMAN, TCC, Bizpoke) | `work` em `src/content/site.ts` |
+| WhatsApp, e-mail, LinkedIn, GitHub | `contact` em `src/content/site.ts` |
+| Case Miau Atelier (textos e imagens) | `src/content/miau-atelier.ts` |
+| Tabela de preços do suporte | `src/content/support.ts` |
+| Cores e fontes | `src/app/globals.css` e `src/lib/fonts.ts` |
+| Imagens | `public/assets/` |
+
+Regra de estilo: nada de travessão (em dash ou en dash) nos textos.
 
 ## Estrutura
 
 ```
-joao-bermal-vercel/
-├── index.html              # página principal (HTML + CSS + JS inline)
-├── miau-atelier/index.html # case Miau Atelier (acessível em /miau-atelier/)
-├── assets/                 # imagens do site
-│   └── miau-atelier/       # marca, fotos de produto, antes/depois e telas da loja
-
-└── README.md
+src/
+├── app/
+│   ├── (pt)/            # layout <html lang="pt-BR">: home, case, suporte
+│   └── (en)/en/         # layout <html lang="en">: home e case
+├── components/          # Header, Footer, HomePage, MiauCase, SupportPage, BeforeAfter, ...
+├── content/             # todos os textos e dados, por idioma
+└── lib/                 # fontes e URL do site
+public/assets/           # imagens (flyers, OBSIDIAN, Miau Atelier)
 ```
 
-## Antes de publicar
-
-Adicione o arquivo `assets/obsidian-branding.jpg` com a imagem do case OBSIDIAN, The
-Origin (a arte de identidade visual feita com IA). Sem esse arquivo, a seção mostra
-automaticamente um aviso de imagem pendente no lugar, o site continua funcionando
-normalmente.
-
-## Deploy no Vercel
-
-Opção mais simples, sem linha de comando:
-
-1. Acesse [vercel.com](https://vercel.com) e entre com sua conta (ou crie uma).
-2. No dashboard, clique em "Add New" > "Project".
-3. Escolha a opção de importar uma pasta local ou arraste a pasta
-   `joao-bermal-vercel` para a área de upload.
-4. Não é preciso configurar nada (sem build command, sem framework): o Vercel detecta
-   como site estático automaticamente.
-5. Clique em "Deploy". Em menos de um minuto o site fica no ar num link
-   `algo.vercel.app`.
-
-Opção via GitHub (recomendada a médio prazo, permite atualizar o site só dando push):
+## Comandos
 
 ```bash
-git init
-git add .
-git commit -m "Site pessoal João Bermal"
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # gera a pasta out/
+npm run lint
 ```
 
-Depois crie um repositório no GitHub, suba o código:
+## Deploy
 
-```bash
-git remote add origin https://github.com/joao-bermal/SEU-REPO.git
-git branch -M main
-git push -u origin main
-```
-
-E no Vercel: "Add New" > "Project" > "Import Git Repository", selecione o repositório.
-Toda vez que você der push no `main`, o Vercel republica o site sozinho.
-
-## Domínio próprio (opcional, mais pra frente)
-
-Depois que o site estiver no ar em `algo.vercel.app`, dá pra apontar um domínio
-próprio (ex.: `joaobermal.com`) nas configurações do projeto no Vercel, aba
-"Domains". Não é necessário para começar a divulgar o link.
+O projeto no Vercel detecta Next.js sozinho. Cada push no `main` publica o site. A URL usada nas imagens de compartilhamento vem de `VERCEL_PROJECT_PRODUCTION_URL` (automática no Vercel) ou de `NEXT_PUBLIC_SITE_URL`, se quiser fixar um domínio próprio.

@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/*
+ * João Bermal design tokens.
+ * Warm paper, near-black ink and one gold accent. Miau Atelier tokens (ma-*) are used
+ * only inside the Miau Atelier case, to show that brand in its own identity.
+ */
+:root {
+  --paper: #f7f5f0;
+  --paper-2: #efece5;
+  --surface: #ffffff;
+  --line: #e2ded5;
+  --ink: #14161a;
+  --ink-2: #3b3f46;
+  --muted: #6b6f76;
+  --night: #0f1110;
+  --night-2: #1a1c1b;
+  --night-line: #2c2e2b;
+  --on-night: #f1ede4;
+  --on-night-muted: #a9a59b;
+  --gold: #c98a3e;
+  --gold-deep: #a9762f;
+  --gold-soft: #d9a75c;
+
+  --ma-ivory: #f8f4ed;
+  --ma-sand: #eadccb;
+  --ma-taupe: #c9b7a3;
+  --ma-sage: #7c8f7a;
+  --ma-blush: #d8a9a8;
+  --ma-chocolate: #3e2b20;
+  --ma-muted: #6e5e52;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-night-line: var(--night-line);
+  --color-on-night: var(--on-night);
+  --color-on-night-muted: var(--on-night-muted);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-ma-ivory: var(--ma-ivory);
+  --color-ma-sand: var(--ma-sand);
+  --color-ma-taupe: var(--ma-taupe);
+  --color-ma-sage: var(--ma-sage);
+  --color-ma-blush: var(--ma-blush);
+  --color-ma-chocolate: var(--ma-chocolate);
+  --color-ma-muted: var(--ma-muted);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-plex), system-ui, sans-serif;
+  --font-ma-serif: var(--font-playfair), Georgia, serif;
+  --font-ma-sans: var(--font-montserrat), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: #fff;
+}
+
+@utility wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.5rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}

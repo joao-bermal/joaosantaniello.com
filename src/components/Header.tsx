@@ -1,0 +1,67 @@
+import Link from 'next/link';
+
+import { contact, localePath, ui, type Locale } from '@/content/site';
+
+import { ButtonLink } from './ui';
+
+export function Header({ locale, currentPath = '/' }: { locale: Locale; currentPath?: string }) {
+  const t = ui[locale];
+  const home = localePath(locale);
+  const links = [
+    { href: `${home}#work`, label: t.nav.work },
+    { href: `${home}#services`, label: t.nav.services },
+    { href: `${home}#process`, label: t.nav.process },
+    { href: `${home}#about`, label: t.nav.about },
+  ];
+  // The language switch keeps the visitor on the equivalent page when it exists.
+  const switchHref = locale === 'pt' ? `/en${currentPath === '/' ? '/' : currentPath}` : currentPath;
+
+  return (
+    <header className="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur-md">
+      <div className="wrap flex h-[72px] items-center justify-between gap-6">
+        <Link href={home} className="display text-[21px] tracking-tight">
+          João Bermal
+        </Link>
+
+        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="text-[14px] font-medium text-muted transition-colors hover:text-ink">
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Link
+            href={switchHref}
+            hrefLang={locale === 'pt' ? 'en' : 'pt-BR'}
+            aria-label={t.langSwitch.aria}
+            className="rounded-full border border-line px-3 py-1.5 text-[12px] font-semibold tracking-wider text-ink-2 transition-colors hover:bg-paper-2"
+          >
+            {t.langSwitch.label}
+          </Link>
+          <ButtonLink href={contact.whatsapp} variant="ink" className="hidden !px-5 !py-2.5 !text-[14px] sm:inline-flex">
+            {t.cta}
+          </ButtonLink>
+          <details className="relative md:hidden">
+            <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-line" aria-label="Menu">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </summary>
+            <div className="absolute right-0 mt-3 flex w-56 flex-col gap-1 rounded-2xl border border-line bg-surface p-3 shadow-xl">
+              {links.map((l) => (
+                <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-[15px] hover:bg-paper-2">
+                  {l.label}
+                </Link>
+              ))}
+              <Link href={contact.whatsapp} className="mt-1 rounded-lg bg-ink px-3 py-2 text-center text-[15px] font-semibold text-paper">
+                {t.cta}
+              </Link>
+            </div>
+          </details>
+        </div>
+      </div>
+    </header>
+  );
+}

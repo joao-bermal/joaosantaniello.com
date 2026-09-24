@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/miau-atelier", "destination": "/cases/miau-atelier/", "permanent": true },
+    { "source": "/miau-atelier/", "destination": "/cases/miau-atelier/", "permanent": true }
+  ]
+}
