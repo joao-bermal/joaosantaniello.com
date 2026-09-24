@@ -8,6 +8,7 @@ Portfólio e site de serviços, em português e inglês. Next.js 16 (App Router)
 |---|---|
 | `/` e `/en/` | Home: identidade visual, e-commerce e desenvolvimento, com o case Miau Atelier em destaque |
 | `/cases/miau-atelier/` e `/en/cases/miau-atelier/` | Case completo da Miau Atelier |
+| `/cv/` e `/en/cv/` | Currículo, com download dos PDFs (completo e uma página) |
 | `/suporte/` | Suporte técnico, manutenção de instrumentos e criação rápida (só em português). Fica fora do menu, com link no rodapé. É o destino dos flyers. |
 
 O endereço antigo `/miau-atelier/` redireciona para `/cases/miau-atelier/` (`vercel.json`).
@@ -20,6 +21,7 @@ O endereço antigo `/miau-atelier/` redireciona para `/cases/miau-atelier/` (`ve
 | Trabalhos selecionados (OBSIDIAN, NAMMAN, TCC, Bizpoke) | `work` em `src/content/site.ts` |
 | WhatsApp, e-mail, LinkedIn, GitHub | `contact` em `src/content/site.ts` |
 | Case Miau Atelier (textos e imagens) | `src/content/miau-atelier.ts` |
+| Currículo (PT e EN, completo e uma página) | `src/content/resume.ts` |
 | Tabela de preços do suporte | `src/content/support.ts` |
 | Cores e fontes | `src/app/globals.css` e `src/lib/fonts.ts` |
 | Imagens | `public/assets/` |
@@ -47,6 +49,17 @@ npm run dev      # http://localhost:3000
 npm run build    # gera a pasta out/
 npm run lint
 ```
+
+## Currículo
+
+O conteúdo fica em `src/content/resume.ts` e gera a página `/cv/` e os quatro PDFs em `public/docs/`. Depois de editar o texto:
+
+```bash
+npm run build
+python scripts/build-cv.py   # imprime /cv/pdf/* com o Chrome e grava em public/docs/
+```
+
+O script falha se o completo passar de duas páginas ou o resumido de uma. As rotas `/cv/pdf/` existem só para a impressão e não são indexadas. Versões antigas ficam em `cv-archive/`, fora do git.
 
 ## Deploy
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { contact, ui, type Locale } from '@/content/site';
+import { contact, localePath, ui, type Locale } from '@/content/site';
 
 export function Footer({ locale }: { locale: Locale }) {
   const t = ui[locale];
@@ -14,6 +14,9 @@ export function Footer({ locale }: { locale: Locale }) {
               {t.footerSupport}
             </Link>
           )}
+          <Link href={localePath(locale, '/cv/')} className="transition-colors hover:text-ink">
+            {t.footerCv}
+          </Link>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ink">
             LinkedIn
           </a>

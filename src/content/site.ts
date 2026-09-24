@@ -27,6 +27,8 @@ export const ui = {
     langSwitch: { label: 'EN', href: '/en/', aria: 'Read in English' },
     footerLine: 'João Vitor Bermal Santaniello · São José dos Campos, SP',
     footerSupport: 'Suporte técnico em São José dos Campos',
+    footerCv: 'Currículo',
+    cvLink: 'Ver currículo completo',
   },
   en: {
     nav: { work: 'Work', services: 'Services', process: 'Process', about: 'About' },
@@ -34,6 +36,8 @@ export const ui = {
     langSwitch: { label: 'PT', href: '/', aria: 'Ler em português' },
     footerLine: 'João Vitor Bermal Santaniello · São José dos Campos, Brazil',
     footerSupport: null,
+    footerCv: 'CV',
+    cvLink: 'View full CV',
   },
 } as const;
 

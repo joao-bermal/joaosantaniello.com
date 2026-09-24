@@ -113,3 +113,167 @@ body {
   font-weight: 600;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
+
+/*
+ * CV (src/components/ResumeDocument.tsx). Sized in pt so the screen version and the
+ * printed A4 PDF match. `.cv-one` tightens everything to fit a single page.
+ */
+.cv {
+  --cv-size: 9.6pt;
+  font-family: var(--font-sans);
+  font-size: var(--cv-size);
+  line-height: 1.35;
+  color: var(--ink);
+}
+.cv a {
+  color: inherit;
+  text-decoration: none;
+}
+.cv-head {
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 8pt;
+}
+.cv-name {
+  font-family: var(--font-display);
+  font-size: 22pt;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.cv-headline {
+  margin-top: 3pt;
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--gold-deep);
+}
+.cv-contact {
+  margin-top: 5pt;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2pt 12pt;
+  font-size: 8.8pt;
+  color: var(--ink-2);
+}
+.cv-section {
+  margin-top: 10pt;
+}
+.cv-section > h2 {
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  border-bottom: 0.75px solid var(--line);
+  padding-bottom: 2pt;
+  margin-bottom: 5pt;
+}
+.cv-item + .cv-item {
+  margin-top: 7pt;
+}
+.cv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10pt;
+}
+.cv-row h3 {
+  font-size: 10.2pt;
+  font-weight: 600;
+}
+.cv-org {
+  font-weight: 400;
+}
+.cv-date {
+  flex-shrink: 0;
+  font-size: 8.8pt;
+  color: var(--muted);
+}
+.cv-place {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 8.8pt;
+  color: var(--muted);
+}
+.cv-group {
+  margin-top: 5pt;
+  font-size: 9.2pt;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.cv-bullets {
+  margin-top: 2pt;
+  padding-left: 11pt;
+  list-style: disc;
+}
+.cv-bullets li {
+  margin-top: 1.5pt;
+  padding-left: 1pt;
+}
+.cv-bullets li::marker {
+  color: var(--gold);
+}
+.cv-project p {
+  margin-top: 1pt;
+}
+.cv-courses {
+  margin-top: 2pt;
+  color: var(--ink-2);
+}
+.cv-skills li + li {
+  margin-top: 2pt;
+}
+.cv-one {
+  --cv-size: 9.1pt;
+  line-height: 1.34;
+}
+.cv-one .cv-name {
+  font-size: 19pt;
+}
+.cv-one .cv-section {
+  margin-top: 8pt;
+}
+.cv-one .cv-item + .cv-item {
+  margin-top: 5pt;
+}
+.cv-one .cv-bullets li {
+  margin-top: 1pt;
+}
+
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+@media print {
+  body {
+    background: #fff;
+  }
+  .cv-row,
+  .cv-bullets li,
+  .cv-project,
+  .cv-skills li {
+    break-inside: avoid;
+  }
+  .cv-section > h2,
+  .cv-group {
+    break-after: avoid;
+  }
+}
+
+/* Print routes (/cv/pdf/): white page, and a centered A4 sheet when opened on screen. */
+.cv-print {
+  background: #fff;
+  min-height: 100vh;
+}
+@media screen {
+  .cv-print .cv {
+    max-width: 182mm;
+    margin: 0 auto;
+    padding: 13mm 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cv-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

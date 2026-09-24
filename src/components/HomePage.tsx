@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { miauAssets } from '@/content/miau-atelier';
-import { contact, home, localePath, work, type Locale } from '@/content/site';
+import { contact, home, localePath, ui, work, type Locale } from '@/content/site';
 
 import { ContactCta } from './ContactCta';
 import { ArrowRight, ArrowUpRight, ButtonLink, Eyebrow, SectionHead, cx } from './ui';
@@ -171,6 +171,9 @@ export function HomePage({ locale }: { locale: Locale }) {
                 </li>
               ))}
             </ul>
+            <Link href={localePath(locale, '/cv/')} className="mt-8 inline-flex items-center gap-2 font-semibold text-gold-deep hover:text-ink">
+              {ui[locale].cvLink} <ArrowRight />
+            </Link>
           </div>
           <div className="flex flex-col gap-5 text-[17px] leading-relaxed text-ink-2">
             {t.about.paragraphs.map((p) => (
