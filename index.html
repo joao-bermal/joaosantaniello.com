@@ -123,6 +123,18 @@
   .showcase p { margin: 0 0 8px; color: var(--on-dark-muted); font-size: 15px; }
   .showcase .quote { font-style: italic; color: var(--on-dark); font-size: 15px; margin-top: 10px; }
 
+  .case-feature {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; margin-top: 24px;
+    background: #F8F4ED; border: 1px solid #EADCCB; border-radius: 18px; padding: 32px; color: #3E2B20;
+  }
+  .case-feature:hover { border-color: #C9B7A3; }
+  .case-feature-media { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .case-feature-media img { aspect-ratio: 4 / 5; width: 100%; object-fit: cover; }
+  .case-feature-text .eyebrow { color: #7C8F7A; }
+  .case-feature-text h3 { margin: 12px 0 10px; font-size: 26px; }
+  .case-feature-text p { margin: 0 0 16px; color: #6E5E52; font-size: 15px; }
+  .case-feature-text .link { font-size: 14px; font-weight: 600; color: var(--accent-deep); }
+
   .extra-card { max-width: 720px; }
   .extra-card h3 { margin: 14px 0 0; font-size: 20px; }
   .extra-card p { margin: 8px 0 0; font-size: 15px; }
@@ -146,14 +158,14 @@
 
   @media (max-width: 900px) {
     .grid-3, .grid-4, .grid-2, .steps { grid-template-columns: 1fr 1fr; }
-    .showcase { grid-template-columns: 1fr; }
+    .showcase, .case-feature { grid-template-columns: 1fr; }
   }
   @media (max-width: 620px) {
     .hero h1 { font-size: 36px; }
     .grid-3, .grid-4, .grid-2, .steps { grid-template-columns: 1fr; }
     .nav-links { gap: 16px; }
     section { padding: 52px 0; }
-    .about-card, .contact-card, .showcase { padding: 28px; }
+    .about-card, .contact-card, .showcase, .case-feature { padding: 28px; }
   }
 </style>
 </head>
@@ -165,6 +177,7 @@
     <nav class="nav-links">
       <a href="#servicos">Serviços</a>
       <a href="#projetos">Projetos</a>
+      <a href="miau-atelier/">Case Miau Atelier</a>
       <a href="#sobre">Sobre</a>
       <a href="#extras">Extras</a>
       <a class="btn btn-primary btn-sm" href="https://wa.me/5512991158100">Falar no WhatsApp</a>
@@ -345,7 +358,7 @@
             <td class="value">R$ 1.500 a 2.500</td>
           </tr>
           <tr>
-            <td class="item">Loja virtual com pagamento integrado<span class="note">Mercado Pago, Stripe ou similar, com catálogo de produtos</span></td>
+            <td class="item">Loja virtual com pagamento integrado<span class="note">Mercado Pago, Stripe ou similar, com catálogo de produtos, como o case Miau Atelier</span></td>
             <td class="value">a partir de R$ 3.500</td>
           </tr>
           <tr class="highlight">
@@ -417,6 +430,19 @@
           <span class="link" style="color: var(--ink-muted);">Detalhes sob consulta</span>
         </div>
       </div>
+
+      <a class="case-feature" href="miau-atelier/">
+        <div class="case-feature-media">
+          <img src="assets/miau-atelier/products/woven-cattail-cat-tree.webp" alt="Woven Cattail Cat Tree, foto editorial da Miau Atelier" loading="lazy">
+          <img src="assets/miau-atelier/brand-board.webp" alt="Brand board da Miau Atelier" loading="lazy">
+        </div>
+        <div class="case-feature-text">
+          <span class="eyebrow">Case completo · E-commerce, marca e IA</span>
+          <h3 class="display">Miau Atelier</h3>
+          <p>Marca de móveis para gatos criada do zero e vendendo para os Estados Unidos: identidade visual, loja Shopify em dólar, storefront em Next.js e um pipeline de IA que transforma foto de fornecedor em fotografia editorial.</p>
+          <span class="link">Ver o case completo →</span>
+        </div>
+      </a>
 
       <div class="showcase">
         <div class="frame">

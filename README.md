@@ -7,8 +7,11 @@ para deploy direto no Vercel.
 
 ```
 joao-bermal-vercel/
-├── index.html   # site inteiro (HTML + CSS + JS inline)
-├── assets/      # coloque aqui a imagem da vitrine OBSIDIAN
+├── index.html              # página principal (HTML + CSS + JS inline)
+├── miau-atelier/index.html # case Miau Atelier (acessível em /miau-atelier/)
+├── assets/                 # imagens do site
+│   └── miau-atelier/       # marca, fotos de produto, antes/depois e telas da loja
+
 └── README.md
 ```
 
