@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { HomePage } from '@/components/HomePage';
+import { LocaleRedirect } from '@/components/LocaleRedirect';
 import { home } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <LocaleRedirect />
       <Header locale="pt" />
       <HomePage locale="pt" />
       <Footer locale="pt" />
