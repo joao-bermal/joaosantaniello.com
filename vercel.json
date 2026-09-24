@@ -1,6 +1,41 @@
 {
   "redirects": [
-    { "source": "/miau-atelier", "destination": "/cases/miau-atelier/", "permanent": true },
-    { "source": "/miau-atelier/", "destination": "/cases/miau-atelier/", "permanent": true }
+    {
+      "source": "/miau-atelier",
+      "destination": "/cases/miau-atelier/",
+      "permanent": true
+    },
+    {
+      "source": "/miau-atelier/",
+      "destination": "/cases/miau-atelier/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "site-lang"
+        },
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "(?i)^ *pt.*"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(bot|crawl|spider|slurp|preview|facebookexternalhit|whatsapp|linkedin|telegram|discord|embedly|vercel).*"
+        }
+      ]
+    }
   ]
 }

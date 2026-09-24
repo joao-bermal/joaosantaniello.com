@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { contact, localePath, ui, type Locale } from '@/content/site';
 
+import { LanguageSwitch } from './LanguageSwitch';
 import { ButtonLink } from './ui';
 
 export function Header({ locale, currentPath = '/' }: { locale: Locale; currentPath?: string }) {
@@ -32,14 +33,7 @@ export function Header({ locale, currentPath = '/' }: { locale: Locale; currentP
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href={switchHref}
-            hrefLang={locale === 'pt' ? 'en' : 'pt-BR'}
-            aria-label={t.langSwitch.aria}
-            className="rounded-full border border-line px-3 py-1.5 text-[12px] font-semibold tracking-wider text-ink-2 transition-colors hover:bg-paper-2"
-          >
-            {t.langSwitch.label}
-          </Link>
+          <LanguageSwitch target={locale === 'pt' ? 'en' : 'pt'} href={switchHref} label={t.langSwitch.label} aria={t.langSwitch.aria} />
           <ButtonLink href={contact.whatsapp} variant="ink" className="hidden !px-5 !py-2.5 !text-[14px] sm:inline-flex">
             {t.cta}
           </ButtonLink>

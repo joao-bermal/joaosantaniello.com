@@ -6,6 +6,9 @@
 
 export type Locale = 'pt' | 'en';
 
+/** Cookie set by the language switch; vercel.json skips the automatic redirect when present. */
+export const LOCALE_COOKIE = 'site-lang';
+
 export const contact = {
   whatsapp: 'https://wa.me/5512991158100',
   whatsappLabel: '(12) 99115-8100',
