@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import html
 import io
+import time
 from pathlib import Path
 
 import segno
@@ -23,6 +24,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "public" / "assets" / "flyers"
 OBSIDIAN = ROOT / "public" / "assets" / "obsidian-branding.jpg"
+MIAU = ROOT / "public" / "assets" / "miau-atelier" / "editorial-hero-living-room-scratcher.webp"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 NAME = "João Santaniello"
@@ -154,10 +156,16 @@ def groups(gs) -> str:
 
 
 def example(dark: bool) -> str:
-    return (
-        f'<div class="example{" dark" if dark else ""}"><img src="{OBSIDIAN.as_uri()}" alt="">'
-        f'<div><div class="exk">Exemplo real</div><div>Identidade visual criada com IA <b>(case OBSIDIAN)</b></div></div></div>'
+    """Two real cases side by side: OBSIDIAN (identity) and Miau Atelier (brand and store)."""
+    cases = [
+        (OBSIDIAN, "OBSIDIAN", "Identidade visual criada com IA"),
+        (MIAU, "Miau Atelier", "Marca e loja virtual vendendo para os EUA"),
+    ]
+    cards = "".join(
+        f'<div class="excard"><img src="{img.as_uri()}" alt=""><div><div class="exk">Case real · {e(name)}</div><div>{e(text)}</div></div></div>'
+        for img, name, text in cases
     )
+    return f'<div class="example{" dark" if dark else ""}">{cards}</div>'
 
 
 def cta(url: str, dark: bool, big: bool = False) -> str:
@@ -201,11 +209,11 @@ body { width:var(--w); height:var(--h); background:var(--paper); color:var(--ink
 .gtitle { font-size:14px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--golddeep); margin-bottom:10px; }
 .chips { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:24px; }
 .chips span { border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-size:14px; color:var(--ink2); }
-.example { display:flex; align-items:center; gap:16px; margin:26px auto 0; padding:12px 20px 12px 12px; border:1.5px solid #e8cfa7; border-radius:16px; background:#fff; font-size:15px; width:max-content; }
-.example.dark { background:#1a1c1b; border-color:#3a3228; }
-.example img { width:66px; height:66px; object-fit:cover; border-radius:10px; }
-.example b { color:var(--golddeep); }
-.exk { font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--golddeep); }
+.example { display:flex; justify-content:center; gap:12px; margin:26px auto 0; }
+.excard { display:flex; align-items:center; gap:12px; padding:10px 16px 10px 10px; border:1.5px solid #e8cfa7; border-radius:14px; background:#fff; font-size:14px; line-height:1.3; max-width:380px; }
+.example.dark .excard { background:#1a1c1b; border-color:#3a3228; }
+.excard img { width:58px; height:58px; object-fit:cover; border-radius:9px; flex-shrink:0; }
+.exk { font-size:10.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--golddeep); margin-bottom:2px; }
 .cta { display:flex; align-items:center; justify-content:center; gap:34px; margin-top:34px; }
 .ctaleft { display:flex; flex-direction:column; align-items:center; gap:12px; }
 .btn { background:var(--gold); color:#fff; font-weight:600; font-size:21px; padding:14px 34px; border-radius:999px; }
@@ -348,6 +356,18 @@ FLYERS = {
 COMBO = ("joao-santaniello-flyer-combo-4-secoes", ["joao-santaniello-flyer-2-suporte-tecnico", "joao-santaniello-flyer-3-desenvolvimento", "joao-santaniello-flyer-4-criacao-ia", "joao-santaniello-flyer-1b-visao-geral-sem-instrumentos"])
 
 
+def save_png(path: Path, data: bytes) -> None:
+    # Windows sometimes holds a just-written PNG (indexer, antivirus); retry briefly.
+    for attempt in range(10):
+        try:
+            path.write_bytes(data)
+            return
+        except OSError:
+            if attempt == 9:
+                raise
+            time.sleep(0.5)
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     tmp = OUT / "_html"
@@ -364,7 +384,7 @@ def main() -> None:
             pg.goto(src.as_uri(), wait_until="networkidle")
             pg.evaluate("document.fonts.ready")
             overflow = pg.evaluate("document.querySelector('.page').scrollHeight > innerHeight + 1")
-            pg.screenshot(path=str(OUT / f"{name}.png"))
+            save_png(OUT / f"{name}.png", pg.screenshot())
             pg.close()
             print(f"{name}.png {w}x{h}{'  OVERFLOW' if overflow else ''}")
         browser.close()
