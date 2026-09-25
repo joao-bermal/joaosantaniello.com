@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { resume, resumeContact, type ResumeGroup } from '@/content/resume';
-import type { Locale } from '@/content/site';
+import { contact, type Locale } from '@/content/site';
 
 import { ArrowUpRight, Eyebrow, cx } from './ui';
 
@@ -20,7 +20,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
   ];
   const contacts = [
     { label: resumeContact.email, href: `mailto:${resumeContact.email}` },
-    { label: resumeContact.phone, href: `tel:${resumeContact.phone.replace(/[^+\d]/g, '')}` },
+    { label: resumeContact.phone, href: contact.whatsapp },
     { label: 'LinkedIn', href: `https://${resumeContact.linkedin}` },
     { label: 'GitHub', href: `https://${resumeContact.github}` },
   ];

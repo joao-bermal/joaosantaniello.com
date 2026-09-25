@@ -1,5 +1,5 @@
 import { resume, resumeContact } from '@/content/resume';
-import type { Locale } from '@/content/site';
+import { contact, type Locale } from '@/content/site';
 
 import { cx } from './ui';
 
@@ -26,7 +26,7 @@ export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; v
         <p className="cv-contact">
           <span>{r.location}</span>
           <a href={`mailto:${resumeContact.email}`}>{resumeContact.email}</a>
-          <span>{resumeContact.phone}</span>
+          <a href={contact.whatsapp}>{resumeContact.phone}</a>
           <a href={`https://${resumeContact.linkedin}`}>{resumeContact.linkedin}</a>
           <a href={`https://${resumeContact.github}`}>{resumeContact.github}</a>
         </p>
