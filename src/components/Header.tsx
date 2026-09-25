@@ -4,16 +4,19 @@ import { contact, localePath, ui, type Locale } from '@/content/site';
 
 import { LanguageSwitch } from './LanguageSwitch';
 import { ThemeToggle } from './ThemeToggle';
-import { ButtonLink } from './ui';
+import { ButtonLink, cx } from './ui';
 
 export function Header({ locale, currentPath = '/' }: { locale: Locale; currentPath?: string }) {
   const t = ui[locale];
   const home = localePath(locale);
+  // The two standalone pages (Miau Atelier case and CV) sit next to the home sections,
+  // so they are one click away from anywhere. The current page is highlighted.
   const links = [
     { href: `${home}#work`, label: t.nav.work },
+    { href: localePath(locale, '/cases/miau-atelier/'), label: t.nav.miau, page: '/cases/miau-atelier/' },
     { href: `${home}#services`, label: t.nav.services },
-    { href: `${home}#process`, label: t.nav.process },
     { href: `${home}#about`, label: t.nav.about },
+    { href: localePath(locale, '/cv/'), label: t.nav.cv, page: '/cv/' },
   ];
   // The language switch keeps the visitor on the equivalent page when it exists.
   const switchHref = locale === 'pt' ? `/en${currentPath === '/' ? '/' : currentPath}` : currentPath;
@@ -25,15 +28,26 @@ export function Header({ locale, currentPath = '/' }: { locale: Locale; currentP
           <span aria-hidden="true" className="display flex h-9 w-9 items-center justify-center rounded-[10px] bg-night text-[15px] tracking-tight text-gold-soft ring-1 ring-night-line transition-transform group-hover:-rotate-3">
             JS
           </span>
-          <span className="display hidden text-[20px] tracking-tight sm:inline">João Santaniello</span>
+          <span className="display hidden text-[20px] tracking-tight sm:inline md:hidden lg:inline">João Santaniello</span>
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[14px] font-medium text-muted transition-colors hover:text-ink">
-              {l.label}
-            </Link>
-          ))}
+        <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
+          {links.map((l) => {
+            const active = l.page === currentPath;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? 'page' : undefined}
+                className={cx(
+                  'relative text-[14px] font-medium transition-colors hover:text-ink',
+                  active ? 'text-ink after:absolute after:-bottom-[25px] after:left-0 after:h-0.5 after:w-full after:bg-gold' : 'text-muted',
+                )}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -50,7 +64,12 @@ export function Header({ locale, currentPath = '/' }: { locale: Locale; currentP
             </summary>
             <div className="absolute right-0 mt-3 flex w-56 flex-col gap-1 rounded-2xl border border-line bg-surface p-3 shadow-xl">
               {links.map((l) => (
-                <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-[15px] hover:bg-paper-2">
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-current={l.page === currentPath ? 'page' : undefined}
+                  className={cx('rounded-lg px-3 py-2 text-[15px] hover:bg-paper-2', l.page === currentPath && 'bg-paper-2 font-semibold')}
+                >
                   {l.label}
                 </Link>
               ))}

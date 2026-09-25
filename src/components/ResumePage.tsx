@@ -11,6 +11,13 @@ import { ArrowUpRight, Eyebrow, cx } from './ui';
  */
 export function ResumePage({ locale }: { locale: Locale }) {
   const r = resume[locale];
+  const sections = [
+    { id: 'summary', label: r.labels.summary },
+    { id: 'experience', label: r.labels.experience },
+    { id: 'projects', label: r.labels.projects },
+    { id: 'education', label: r.labels.education },
+    { id: 'skills', label: r.labels.skills },
+  ];
   const contacts = [
     { label: resumeContact.email, href: `mailto:${resumeContact.email}` },
     { label: resumeContact.phone, href: `tel:${resumeContact.phone.replace(/[^+\d]/g, '')}` },
@@ -21,8 +28,8 @@ export function ResumePage({ locale }: { locale: Locale }) {
   return (
     <main>
       {/* Hero */}
-      <section className="border-b border-line">
-        <div className="wrap grid gap-12 pb-14 pt-14 md:grid-cols-[1fr_320px] md:items-end md:pb-20 md:pt-20">
+      <section>
+        <div className="wrap grid gap-12 pt-14 md:grid-cols-[1fr_320px] md:items-end md:pt-20">
           <div>
             <Eyebrow>{r.labels.eyebrow}</Eyebrow>
             <h1 className="display mt-5 text-[40px] leading-[1.05] md:text-[60px]">{r.name}</h1>
@@ -41,27 +48,45 @@ export function ResumePage({ locale }: { locale: Locale }) {
           </div>
           <Downloads locale={locale} />
         </div>
+
+        {/* Highlights: part of the hero, so the page reads as one piece */}
+        <div className="wrap pb-12 pt-12 md:pb-16 md:pt-14">
+          <dl className="grid grid-cols-2 border-t border-line md:grid-cols-4">
+            {r.highlights.map((h, i) => (
+              <div key={h.value} className={cx('pr-5 pt-6', i % 2 === 1 && 'pl-5 md:pl-0', i > 0 && 'md:border-l md:border-line md:pl-6', i > 1 && 'mt-2 md:mt-0')}>
+                <dt className="display text-[28px] leading-none text-gold-deep md:text-[34px]">{h.value}</dt>
+                <dd className="mt-2.5 text-[14px] leading-snug text-muted">{h.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
-      {/* Highlights */}
-      <section className="bg-night py-12 md:py-14">
-        <dl className="wrap grid grid-cols-2 gap-8 md:grid-cols-4">
-          {r.highlights.map((h) => (
-            <div key={h.value}>
-              <dt className="display text-[30px] leading-none text-gold-soft md:text-[38px]">{h.value}</dt>
-              <dd className="mt-3 text-[14px] leading-snug text-on-night-muted">{h.label}</dd>
-            </div>
+      {/* Section index, sticky under the header */}
+      <nav aria-label={r.labels.eyebrow} className="sticky top-[72px] z-20 border-y border-line bg-paper/90 backdrop-blur-md">
+        <ul className="wrap flex gap-6 overflow-x-auto py-3.5 text-[14px] font-medium [scrollbar-width:none]">
+          {sections.map((sec) => (
+            <li key={sec.id} className="shrink-0">
+              <a href={`#${sec.id}`} className="text-muted transition-colors hover:text-ink">
+                {sec.label}
+              </a>
+            </li>
           ))}
-        </dl>
-      </section>
+          <li className="ml-auto hidden shrink-0 sm:block">
+            <a href={r.files.full} download className="font-semibold text-gold-deep hover:text-ink">
+              {r.labels.full} ↓
+            </a>
+          </li>
+        </ul>
+      </nav>
 
       {/* Summary */}
-      <Block title={r.labels.summary}>
+      <Block id="summary" title={r.labels.summary}>
         <p className="max-w-3xl text-[18px] leading-relaxed text-ink-2">{r.summary}</p>
       </Block>
 
       {/* Experience */}
-      <Block title={r.labels.experience} tinted>
+      <Block id="experience" title={r.labels.experience} tinted>
         <ol className="flex flex-col gap-14">
           {r.experience.map((job) => (
             <li key={job.role + job.period} className="grid gap-6 md:grid-cols-[220px_1fr] md:gap-10">
@@ -85,7 +110,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
       </Block>
 
       {/* Projects */}
-      <Block title={r.labels.projects}>
+      <Block id="projects" title={r.labels.projects}>
         <div className="grid gap-5 md:grid-cols-2">
           {r.projects.map((p, i) => (
             <article key={p.name} className={cx('flex flex-col rounded-3xl border border-line bg-surface p-7 md:p-8', i === 0 && 'md:col-span-2')}>
@@ -115,7 +140,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
       </Block>
 
       {/* Education */}
-      <Block title={r.labels.education} tinted>
+      <Block id="education" title={r.labels.education} tinted>
         <div className="flex flex-col gap-8">
           {r.education.map((e) => (
             <div key={e.degree} className="grid gap-3 md:grid-cols-[220px_1fr] md:gap-10">
@@ -133,7 +158,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
       </Block>
 
       {/* Skills, languages, courses */}
-      <Block title={r.labels.skills}>
+      <Block id="skills" title={r.labels.skills}>
         <dl className="grid gap-x-10 gap-y-6 md:grid-cols-2">
           {r.skills.map((s) => (
             <div key={s.label} className="border-t border-line pt-4">
@@ -198,9 +223,9 @@ function Downloads({ locale }: { locale: Locale }) {
   );
 }
 
-function Block({ title, tinted, children }: { title: string; tinted?: boolean; children: React.ReactNode }) {
+function Block({ id, title, tinted, children }: { id: string; title: string; tinted?: boolean; children: React.ReactNode }) {
   return (
-    <section className={cx('py-16 md:py-20', tinted && 'bg-paper-2')}>
+    <section id={id} className={cx('scroll-mt-[122px] py-16 md:py-20', tinted && 'bg-paper-2')}>
       <div className="wrap">
         <h2 className="eyebrow mb-9">{title}</h2>
         {children}
