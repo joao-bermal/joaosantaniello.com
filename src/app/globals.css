@@ -146,7 +146,7 @@ body {
  */
 .cv {
   /* Deep navy: a sober accent for a document meant for recruiters. */
-  --cv-accent: #1c2e4a;
+  --cv-accent: #2b4c7e;
   --cv-size: 9.6pt;
   font-family: var(--font-sans);
   font-size: var(--cv-size);
@@ -162,10 +162,11 @@ body {
   padding-bottom: 8pt;
 }
 .cv-name {
-  font-family: var(--font-display);
-  font-size: 22pt;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 21pt;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 .cv-headline {
   margin-top: 3pt;
@@ -173,15 +174,16 @@ body {
   font-weight: 500;
   color: var(--cv-accent);
 }
-.cv-site {
-  margin-top: 3pt;
-  font-size: 9.6pt;
+.cv a.cv-site {
   font-weight: 600;
-}
-.cv-site a {
   color: var(--cv-accent);
-  text-decoration: underline;
-  text-underline-offset: 2pt;
+}
+/* Justified body text, without hyphenation so ATS parsers keep whole words. */
+.cv-section > p,
+.cv-bullets li,
+.cv-project p {
+  text-align: justify;
+  hyphens: manual;
 }
 .cv-contact {
   margin-top: 5pt;
@@ -264,7 +266,7 @@ body {
   line-height: 1.34;
 }
 .cv-one .cv-name {
-  font-size: 19pt;
+  font-size: 18.5pt;
 }
 .cv-one .cv-section {
   margin-top: 8pt;

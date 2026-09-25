@@ -20,10 +20,10 @@ export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; v
       <header className="cv-head">
         <h1 className="cv-name">{r.name}</h1>
         <p className="cv-headline">{r.headline}</p>
-        <p className="cv-site">
-          {r.labels.portfolio}: <a href={`https://${resumeContact.site}`}>{resumeContact.site}</a>
-        </p>
         <p className="cv-contact">
+          <a className="cv-site" href={`https://${resumeContact.site}`}>
+            {resumeContact.site}
+          </a>
           <span>{r.location}</span>
           <a href={`mailto:${resumeContact.email}`}>{resumeContact.email}</a>
           <a href={contact.whatsapp}>{resumeContact.phone}</a>
