@@ -77,7 +77,7 @@ export const resumeContact = {
   phone: '+55 12 99115-8100',
   linkedin: 'linkedin.com/in/joao-santaniello',
   github: 'github.com/joao-bermal',
-  site: 'joao-bermal-site.vercel.app',
+  site: 'joaosantaniello.com',
 };
 
 const en: Resume = {
