@@ -30,7 +30,12 @@
         {
           "type": "header",
           "key": "accept-language",
-          "value": "(?i)^ *pt.*"
+          "value": "(?i).*pt.*"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "(?i)^(BR|PT|AO|MZ|CV|GW|ST|TL)$"
         },
         {
           "type": "header",
