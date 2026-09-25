@@ -238,8 +238,8 @@ export const work: WorkItem[] = [
       pt: 'App publicado que roda inteiro no navegador e sincroniza perfis de amplificador com o computador do usuário, com login seguro e sem servidor.',
       en: 'A live app that runs entirely in the browser and syncs amp profiles to the user’s computer, with secure sign-in and no server.',
     },
-    href: 'https://github.com/joao-bermal/NAMMAN',
-    linkLabel: { pt: 'Ver no GitHub', en: 'View on GitHub' },
+    href: 'https://namman.vercel.app/',
+    linkLabel: { pt: 'Abrir o app', en: 'Open the app' },
     external: true,
   },
   {

@@ -7,21 +7,22 @@ export type ResumeVariant = 'full' | 'onePage';
 
 /**
  * The CV itself: one column of real text, standard section names and no tables, so ATS
- * parsers read it cleanly. The same markup is shown on /cv/ and printed to PDF from /cv/pdf/.
+ * parsers read it cleanly. It is printed to PDF from /cv/pdf/; the /cv/ page is the extended version (ResumePage).
  * Styles live in globals.css under `.cv`.
  */
-export function ResumeDocument({ locale, variant = 'full', embedded = false }: { locale: Locale; variant?: ResumeVariant; embedded?: boolean }) {
+export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; variant?: ResumeVariant }) {
   const r = resume[locale];
   const one = variant === 'onePage';
   const skills = one ? r.skills.filter((s) => s.onePage) : r.skills;
-  // Inside the /cv/ page the page already has its h1.
-  const Name = embedded ? 'p' : 'h1';
 
   return (
     <article className={cx('cv', one && 'cv-one')}>
       <header className="cv-head">
-        <Name className="cv-name">{r.name}</Name>
+        <h1 className="cv-name">{r.name}</h1>
         <p className="cv-headline">{r.headline}</p>
+        <p className="cv-site">
+          {r.labels.portfolio}: <a href={`https://${resumeContact.site}`}>{resumeContact.site}</a>
+        </p>
         <p className="cv-contact">
           <span>{r.location}</span>
           <a href={`mailto:${resumeContact.email}`}>{resumeContact.email}</a>
@@ -63,21 +64,23 @@ export function ResumeDocument({ locale, variant = 'full', embedded = false }: {
 
       {!one && (
         <Section title={r.labels.projects}>
-          {r.projects.map((p) => (
+          {r.projects
+            .filter((p) => !p.webOnly)
+            .map((p) => (
             <div key={p.name} className="cv-item cv-project">
               <div className="cv-row">
                 <h3>
                   {p.name}, <span className="cv-org">{p.role}</span>
                 </h3>
-                {p.href && (
-                  <a className="cv-date" href={`https://${p.href}`}>
-                    {p.href}
+                {p.links?.[0] && (
+                  <a className="cv-date" href={p.links[0].href}>
+                    {p.links[0].label}
                   </a>
                 )}
               </div>
               <p>{p.text}</p>
             </div>
-          ))}
+            ))}
         </Section>
       )}
 

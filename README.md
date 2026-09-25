@@ -8,7 +8,7 @@ Portfólio e site de serviços, em português e inglês. Next.js 16 (App Router)
 |---|---|
 | `/` e `/en/` | Home: identidade visual, e-commerce e desenvolvimento, com o case Miau Atelier em destaque |
 | `/cases/miau-atelier/` e `/en/cases/miau-atelier/` | Case completo da Miau Atelier |
-| `/cv/` e `/en/cv/` | Currículo, com download dos PDFs (completo e uma página) |
+| `/cv/` e `/en/cv/` | Currículo estendido (mais detalhado que os PDFs), com download do completo e do de uma página |
 | `/suporte/` | Suporte técnico, manutenção de instrumentos e criação rápida (só em português). Fica fora do menu, com link no rodapé. É o destino dos flyers. |
 
 O endereço antigo `/miau-atelier/` redireciona para `/cases/miau-atelier/` (`vercel.json`).

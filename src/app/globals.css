@@ -145,6 +145,16 @@ body {
   font-weight: 500;
   color: var(--gold-deep);
 }
+.cv-site {
+  margin-top: 3pt;
+  font-size: 9.6pt;
+  font-weight: 600;
+}
+.cv-site a {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-underline-offset: 2pt;
+}
 .cv-contact {
   margin-top: 5pt;
   display: flex;
