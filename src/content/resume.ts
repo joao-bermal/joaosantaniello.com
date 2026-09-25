@@ -319,8 +319,8 @@ const en: Resume = {
     'AWS Summit São Paulo (2023) · Esri Developer Summit (2022)',
   ],
   files: {
-    full: '/docs/Joao_Bermal_Santaniello_CV_EN.pdf',
-    onePage: '/docs/Joao_Bermal_Santaniello_Resume_EN.pdf',
+    full: '/docs/Joao_Santaniello_CV_EN.pdf',
+    onePage: '/docs/Joao_Santaniello_Resume_EN.pdf',
   },
 };
 
@@ -561,8 +561,8 @@ const pt: Resume = {
     'AWS Summit São Paulo (2023) · Esri Developer Summit (2022)',
   ],
   files: {
-    full: '/docs/Joao_Bermal_Santaniello_Curriculo_PT.pdf',
-    onePage: '/docs/Joao_Bermal_Santaniello_Curriculo_1pag_PT.pdf',
+    full: '/docs/Joao_Santaniello_Curriculo_PT.pdf',
+    onePage: '/docs/Joao_Santaniello_Curriculo_1pag_PT.pdf',
   },
 };
 

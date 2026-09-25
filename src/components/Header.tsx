@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { contact, localePath, ui, type Locale } from '@/content/site';
 
 import { LanguageSwitch } from './LanguageSwitch';
+import { ThemeToggle } from './ThemeToggle';
 import { ButtonLink } from './ui';
 
 export function Header({ locale, currentPath = '/' }: { locale: Locale; currentPath?: string }) {
@@ -20,8 +21,11 @@ export function Header({ locale, currentPath = '/' }: { locale: Locale; currentP
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur-md">
       <div className="wrap flex h-[72px] items-center justify-between gap-6">
-        <Link href={home} className="display text-[21px] tracking-tight">
-          João Bermal
+        <Link href={home} className="group flex items-center gap-3" aria-label="João Santaniello">
+          <span aria-hidden="true" className="display flex h-9 w-9 items-center justify-center rounded-[10px] bg-night text-[15px] tracking-tight text-gold-soft ring-1 ring-night-line transition-transform group-hover:-rotate-3">
+            JS
+          </span>
+          <span className="display hidden text-[20px] tracking-tight sm:inline">João Santaniello</span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
@@ -32,7 +36,8 @@ export function Header({ locale, currentPath = '/' }: { locale: Locale; currentP
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <ThemeToggle label={t.theme} />
           <LanguageSwitch target={locale === 'pt' ? 'en' : 'pt'} href={switchHref} label={t.langSwitch.label} aria={t.langSwitch.aria} />
           <ButtonLink href={contact.whatsapp} variant="ink" className="hidden !px-5 !py-2.5 !text-[14px] sm:inline-flex">
             {t.cta}

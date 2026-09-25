@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: 'CV', robots: { index: false, follow:
 
 export default function Page() {
   return (
-    <main className="cv-print">
+    <main className="cv-print theme-light">
       <ResumeDocument locale="pt" variant="onePage" />
     </main>
   );

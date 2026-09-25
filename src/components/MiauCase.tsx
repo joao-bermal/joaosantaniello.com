@@ -80,7 +80,7 @@ export function MiauCase({ locale }: { locale: Locale }) {
       </section>
 
       {/* Brand reference, in the Miau Atelier identity */}
-      <section id="brand" className="bg-ma-ivory py-20 text-ma-chocolate md:py-28">
+      <section id="brand" className="theme-light bg-ma-ivory py-20 text-ma-chocolate md:py-28">
         <div className="wrap">
           <div className="max-w-2xl">
             <MaLabel>{t.brand.eyebrow}</MaLabel>
@@ -182,7 +182,7 @@ export function MiauCase({ locale }: { locale: Locale }) {
       </section>
 
       {/* Catalog */}
-      <section className="bg-ma-ivory py-20 md:py-28">
+      <section className="theme-light bg-ma-ivory py-20 md:py-28">
         <div className="wrap">
           <div className="mb-12 max-w-2xl">
             <MaLabel>{t.catalog.eyebrow}</MaLabel>

@@ -8,7 +8,7 @@ export type PriceGroup = { title: string; subtitle: string; rows: PriceRow[] };
 
 export const support = {
   meta: {
-    title: 'Suporte técnico em São José dos Campos | João Bermal',
+    title: 'Suporte técnico em São José dos Campos | João Santaniello',
     description:
       'Formatação, remoção de vírus, upgrade de SSD e memória, redes, drivers e manutenção de instrumentos em São José dos Campos. Atendimento presencial ou remoto.',
   },

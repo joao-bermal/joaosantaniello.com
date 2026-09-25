@@ -25,10 +25,10 @@ CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 # route -> (file name, maximum page count)
 JOBS = {
-    "/cv/pdf/full/": ("Joao_Bermal_Santaniello_Curriculo_PT.pdf", 2),
-    "/cv/pdf/one-page/": ("Joao_Bermal_Santaniello_Curriculo_1pag_PT.pdf", 1),
-    "/en/cv/pdf/full/": ("Joao_Bermal_Santaniello_CV_EN.pdf", 2),
-    "/en/cv/pdf/one-page/": ("Joao_Bermal_Santaniello_Resume_EN.pdf", 1),
+    "/cv/pdf/full/": ("Joao_Santaniello_Curriculo_PT.pdf", 2),
+    "/cv/pdf/one-page/": ("Joao_Santaniello_Curriculo_1pag_PT.pdf", 1),
+    "/en/cv/pdf/full/": ("Joao_Santaniello_CV_EN.pdf", 2),
+    "/en/cv/pdf/one-page/": ("Joao_Santaniello_Resume_EN.pdf", 1),
 }
 
 

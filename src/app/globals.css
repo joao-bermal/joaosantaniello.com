@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /*
- * João Bermal design tokens.
- * Warm paper, near-black ink and one gold accent. Miau Atelier tokens (ma-*) are used
- * only inside the Miau Atelier case, to show that brand in its own identity.
+ * João Santaniello design tokens.
+ * Warm paper, near-black ink and one gold accent, with a dark theme set by
+ * <html data-theme="dark"> (ThemeScript + ThemeToggle). `.theme-light` pins a block to
+ * the light palette (Miau Atelier sections, printed CV). Miau Atelier tokens (ma-*) are
+ * used only inside the Miau Atelier case, to show that brand in its own identity.
  */
-:root {
+:root,
+.theme-light {
   --paper: #f7f5f0;
   --paper-2: #efece5;
   --surface: #ffffff;
@@ -30,6 +35,27 @@
   --ma-chocolate: #3e2b20;
   --ma-muted: #6e5e52;
 }
+
+.theme-light {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121311;
+  --paper-2: #191a18;
+  --surface: #1e1f1c;
+  --line: #2f302c;
+  --ink: #f1ede4;
+  --ink-2: #d6d1c6;
+  --muted: #9d988d;
+  --night: #0a0b0a;
+  --night-2: #161715;
+  --night-line: #2a2b28;
+  --gold-deep: #d9a75c;
+  --gold-soft: #e3b978;
+}
+
 
 @theme inline {
   --color-paper: var(--paper);
@@ -271,6 +297,7 @@ body {
 /* Print routes (/cv/pdf/): white page, and a centered A4 sheet when opened on screen. */
 .cv-print {
   background: #fff;
+  color-scheme: light;
   min-height: 100vh;
 }
 @media screen {

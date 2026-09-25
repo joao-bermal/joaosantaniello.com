@@ -25,6 +25,7 @@ export const ui = {
     nav: { work: 'Cases', services: 'Serviços', process: 'Processo', about: 'Sobre' },
     cta: 'Iniciar um projeto',
     langSwitch: { label: 'EN', href: '/en/', aria: 'Read in English' },
+    theme: 'Alternar entre tema claro e escuro',
     footerLine: 'João Vitor Bermal Santaniello · São José dos Campos, SP',
     footerSupport: 'Suporte técnico em São José dos Campos',
     footerCv: 'Currículo',
@@ -34,6 +35,7 @@ export const ui = {
     nav: { work: 'Work', services: 'Services', process: 'Process', about: 'About' },
     cta: 'Start a project',
     langSwitch: { label: 'PT', href: '/', aria: 'Ler em português' },
+    theme: 'Toggle light and dark theme',
     footerLine: 'João Vitor Bermal Santaniello · São José dos Campos, Brazil',
     footerSupport: null,
     footerCv: 'CV',
@@ -44,7 +46,7 @@ export const ui = {
 export const home = {
   pt: {
     meta: {
-      title: 'João Bermal: identidade visual, e-commerce e desenvolvimento',
+      title: 'João Santaniello: identidade visual, e-commerce e desenvolvimento',
       description:
         'Marcas, lojas virtuais e sistemas sob medida, do conceito ao ar. Identidade visual, e-commerce com pagamento internacional e desenvolvimento de software.',
     },
@@ -124,7 +126,7 @@ export const home = {
   },
   en: {
     meta: {
-      title: 'João Bermal: brand identity, e-commerce and software development',
+      title: 'João Santaniello: brand identity, e-commerce and software development',
       description:
         'Brands, online stores and custom software, from concept to launch. Brand identity, international e-commerce and software development.',
     },

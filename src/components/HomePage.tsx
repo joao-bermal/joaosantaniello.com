@@ -48,7 +48,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Featured case */}
-      <section id="work" className="bg-ma-ivory py-20 text-ma-chocolate md:py-28">
+      <section id="work" className="theme-light bg-ma-ivory py-20 text-ma-chocolate md:py-28">
         <div className="wrap">
           <Link href={caseHref} className="group grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
             <div className="grid grid-cols-2 gap-3 md:gap-4">

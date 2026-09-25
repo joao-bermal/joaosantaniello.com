@@ -1,4 +1,4 @@
-# Site João Bermal
+# Site João Santaniello
 
 Portfólio e site de serviços, em português e inglês. Next.js 16 (App Router) com export estático: cada página vira HTML no build e o Vercel serve os arquivos.
 

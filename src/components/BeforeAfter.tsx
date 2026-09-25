@@ -23,7 +23,7 @@ export function BeforeAfter({
 
   return (
     <figure className="m-0">
-      <div className="relative aspect-square select-none overflow-hidden rounded-2xl border border-line bg-paper-2">
+      <div className="theme-light relative aspect-square select-none overflow-hidden rounded-2xl border border-line bg-paper-2">
         <Image src={after} alt={`${afterLabel}: ${name}`} fill sizes="(min-width: 768px) 30vw, 90vw" className="object-cover" />
         <div className="absolute inset-0 bg-white" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
           <Image src={before} alt={`${beforeLabel}: ${name}`} fill sizes="(min-width: 768px) 30vw, 90vw" className="object-contain" />
