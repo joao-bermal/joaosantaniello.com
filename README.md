@@ -61,6 +61,14 @@ python scripts/build-cv.py   # imprime /cv/pdf/* com o Chrome e grava em public/
 
 O script falha se o completo passar de duas páginas ou o resumido de uma. As rotas `/cv/pdf/` existem só para a impressão e não são indexadas. Versões antigas ficam em `cv-archive/`, fora do git.
 
+## Flyers
+
+Os flyers ficam em `public/assets/flyers/` e são gerados por `scripts/flyers/build.py` (HTML renderizado pelo Chrome, com QR code para joaosantaniello.com/suporte). Textos e preços ficam no próprio script: os locais espelham `src/content/support.ts` e os de projetos espelham os preços "a partir de" da home. Depois de editar:
+
+```bash
+python scripts/flyers/build.py
+```
+
 ## Deploy
 
 O projeto no Vercel detecta Next.js sozinho. Cada push no `main` publica o site. A URL usada nas imagens de compartilhamento vem de `VERCEL_PROJECT_PRODUCTION_URL` (automática no Vercel) ou de `NEXT_PUBLIC_SITE_URL`, se quiser fixar um domínio próprio.
