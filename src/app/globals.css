@@ -145,6 +145,8 @@ body {
  * printed A4 PDF match. `.cv-one` tightens everything to fit a single page.
  */
 .cv {
+  /* Deep navy: a sober accent for a document meant for recruiters. */
+  --cv-accent: #1c2e4a;
   --cv-size: 9.6pt;
   font-family: var(--font-sans);
   font-size: var(--cv-size);
@@ -169,7 +171,7 @@ body {
   margin-top: 3pt;
   font-size: 10.5pt;
   font-weight: 500;
-  color: var(--gold-deep);
+  color: var(--cv-accent);
 }
 .cv-site {
   margin-top: 3pt;
@@ -177,7 +179,7 @@ body {
   font-weight: 600;
 }
 .cv-site a {
-  color: var(--gold-deep);
+  color: var(--cv-accent);
   text-decoration: underline;
   text-underline-offset: 2pt;
 }
@@ -197,7 +199,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: var(--cv-accent);
   border-bottom: 0.75px solid var(--line);
   padding-bottom: 2pt;
   margin-bottom: 5pt;
@@ -245,7 +247,7 @@ body {
   padding-left: 1pt;
 }
 .cv-bullets li::marker {
-  color: var(--gold);
+  color: var(--cv-accent);
 }
 .cv-project p {
   margin-top: 1pt;
