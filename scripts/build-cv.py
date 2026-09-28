@@ -2,6 +2,7 @@
 
 Run after `npm run build`: serves out/, prints each /cv/pdf/ route with Chrome and writes
 the PDFs to public/docs/ (committed, served by the site) and out/docs/ (current build).
+Tailored versions (TAILORED_JOBS) go to cv-tailored/ only, which git ignores.
 
     npm run build
     python scripts/build-cv.py
@@ -23,12 +24,20 @@ OUT = ROOT / "out"
 DOCS = ROOT / "public" / "docs"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-# route -> (file name, maximum page count)
+TAILORED = ROOT / "cv-tailored"
+
+# route -> (file name, maximum page count). Public PDFs go to public/docs/.
 JOBS = {
     "/cv/pdf/full/": ("Joao_Santaniello_Curriculo_PT.pdf", 2),
     "/cv/pdf/one-page/": ("Joao_Santaniello_Curriculo_1pag_PT.pdf", 1),
     "/en/cv/pdf/full/": ("Joao_Santaniello_CV_EN.pdf", 2),
     "/en/cv/pdf/one-page/": ("Joao_Santaniello_Resume_EN.pdf", 1),
+}
+
+# Tailored versions for specific roles: written to cv-tailored/ (git ignored), never published.
+TAILORED_JOBS = {
+    "/en/cv/pdf/ai/": ("Joao_Santaniello_CV_AI_Product_Engineer.pdf", 2),
+    "/en/cv/pdf/ai-one-page/": ("Joao_Santaniello_Resume_AI_Product_Engineer.pdf", 1),
 }
 
 
@@ -51,12 +60,15 @@ def main() -> None:
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=CHROME)
         page = browser.new_page()
-        for route, (name, max_pages) in JOBS.items():
+        TAILORED.mkdir(exist_ok=True)
+        jobs = [(r, n, m, True) for r, (n, m) in JOBS.items()] + [(r, n, m, False) for r, (n, m) in TAILORED_JOBS.items()]
+        for route, name, max_pages, public in jobs:
             page.goto(base + route, wait_until="networkidle")
             page.evaluate("document.fonts.ready")
-            target = DOCS / name
+            target = (DOCS if public else TAILORED) / name
             page.pdf(path=str(target), format="A4", print_background=True, prefer_css_page_size=True)
-            shutil.copy2(target, OUT / "docs" / name)
+            if public:
+                shutil.copy2(target, OUT / "docs" / name)
             pages = len(PdfReader(target).pages)
             print(f"{name}: {pages} page(s)")
             if max_pages and pages > max_pages:

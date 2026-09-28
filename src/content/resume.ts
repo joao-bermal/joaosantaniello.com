@@ -31,8 +31,8 @@ export type ResumeJob = {
 
 export type ResumeLink = { label: string; href: string };
 
-/** The first link is the one printed in the PDF. `webOnly` projects stay off the PDFs. */
-export type ResumeProject = { name: string; role: string; text: string; links?: ResumeLink[]; details?: string[]; stack?: string[]; webOnly?: boolean };
+/** The first link is the one printed in the PDF. `webOnly` projects stay off the PDFs; `onePage` is a short line that puts the project on the one-page resume too. */
+export type ResumeProject = { name: string; role: string; text: string; links?: ResumeLink[]; details?: string[]; stack?: string[]; webOnly?: boolean; onePage?: string };
 
 export type ResumeEducation = { degree: string; school: string; place: string; period: string; details: string[]; onePage?: string };
 

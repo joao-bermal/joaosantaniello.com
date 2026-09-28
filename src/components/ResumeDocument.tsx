@@ -1,4 +1,4 @@
-import { resume, resumeContact } from '@/content/resume';
+import { resume, resumeContact, type Resume } from '@/content/resume';
 import { contact, type Locale } from '@/content/site';
 
 import { cx } from './ui';
@@ -10,8 +10,9 @@ export type ResumeVariant = 'full' | 'onePage';
  * parsers read it cleanly. It is printed to PDF from /cv/pdf/; the /cv/ page is the extended version (ResumePage).
  * Styles live in globals.css under `.cv`.
  */
-export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; variant?: ResumeVariant }) {
-  const r = resume[locale];
+export function ResumeDocument({ locale, variant = 'full', data }: { locale: Locale; variant?: ResumeVariant; data?: Resume }) {
+  // `data` swaps in a tailored version (src/content/resume-ai.ts) with the same layout.
+  const r = data ?? resume[locale];
   const one = variant === 'onePage';
   const skills = one ? r.skills.filter((s) => s.onePage) : r.skills;
 
@@ -62,10 +63,10 @@ export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; v
         })}
       </Section>
 
-      {!one && (
+      {(!one || r.projects.some((p) => p.onePage)) && (
         <Section title={r.labels.projects}>
           {r.projects
-            .filter((p) => !p.webOnly)
+            .filter((p) => !p.webOnly && (!one || p.onePage))
             .map((p) => (
             <div key={p.name} className="cv-item cv-project">
               <div className="cv-row">
@@ -78,7 +79,7 @@ export function ResumeDocument({ locale, variant = 'full' }: { locale: Locale; v
                   </a>
                 )}
               </div>
-              <p>{p.text}</p>
+              <p>{one ? p.onePage : p.text}</p>
             </div>
             ))}
         </Section>

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Old CV versions kept locally for reference
 /cv-archive/
+
+# Role-specific CVs, generated locally by scripts/build-cv.py and never published
+/cv-tailored/
