@@ -1,74 +1,79 @@
-# Site João Santaniello
+# joaosantaniello.com
 
-Portfólio e site de serviços, em português e inglês. Next.js 16 (App Router) com export estático: cada página vira HTML no build e o Vercel serve os arquivos.
+Portfolio and services site of João Santaniello, in Portuguese and English. Live at **[joaosantaniello.com](https://joaosantaniello.com)**.
 
-## Páginas
+Next.js 16 (App Router) with static export: every page is rendered to HTML at build time and served by Vercel.
 
-| Rota | Conteúdo |
+## Highlights
+
+- **Bilingual routing.** Portuguese at `/`, English at `/en/`, each with its own root layout so `<html lang>` is correct. A Vercel edge rule (`vercel.json`) sends visitors to `/en/` only when the browser lists no Portuguese and the country (`x-vercel-ip-country`) is not Portuguese speaking; a cookie keeps a manual choice.
+- **Light and dark theme.** Light by default, dark on request, applied before first paint (no flash). Brand sections and the printed CV stay light.
+- **CV as code.** One content file renders the extended web CV (`/cv/`) and prints ATS-friendly PDFs with Playwright; the build fails if the full CV passes two pages or the resume passes one.
+- **Generated print flyers.** Local-service flyers are HTML templates rendered to PNG, with QR codes to `/suporte/`, so prices and branding live in code, not in image files.
+- **Case study.** A full Miau Atelier case (brand, Shopify store and AI image pipeline) with before and after sliders.
+
+## Pages
+
+| Route | Content |
 |---|---|
-| `/` e `/en/` | Home: identidade visual, e-commerce e desenvolvimento, com o case Miau Atelier em destaque |
-| `/cases/miau-atelier/` e `/en/cases/miau-atelier/` | Case completo da Miau Atelier |
-| `/cv/` e `/en/cv/` | Currículo estendido (mais detalhado que os PDFs), com download do completo e do de uma página |
-| `/suporte/` | Suporte técnico, manutenção de instrumentos e criação rápida (só em português). Fica fora do menu, com link no rodapé. É o destino dos flyers. |
+| `/`, `/en/` | Home: brand identity, e-commerce and custom development, with the Miau Atelier case featured |
+| `/cases/miau-atelier/`, `/en/cases/miau-atelier/` | Miau Atelier case study |
+| `/cv/`, `/en/cv/` | Extended CV with downloads of the full CV and the one-page resume |
+| `/suporte/` | Local tech support, instrument care and quick creative work (Portuguese only, linked from the footer and the flyers) |
 
-O endereço antigo `/miau-atelier/` redireciona para `/cases/miau-atelier/` (`vercel.json`).
+The old `/miau-atelier/` address redirects to `/cases/miau-atelier/` (`vercel.json`).
 
-## Onde editar
+## Where to edit
 
-| O que | Arquivo |
+| What | File |
 |---|---|
-| Textos da home, serviços, preços "a partir de", processo, sobre | `src/content/site.ts` |
-| Trabalhos selecionados (OBSIDIAN, NAMMAN, TCC, Bizpoke) | `work` em `src/content/site.ts` |
-| WhatsApp, e-mail, LinkedIn, GitHub | `contact` em `src/content/site.ts` |
-| Case Miau Atelier (textos e imagens) | `src/content/miau-atelier.ts` |
-| Currículo (PT e EN, completo e uma página) | `src/content/resume.ts` |
-| Tabela de preços do suporte | `src/content/support.ts` |
-| Cores e fontes | `src/app/globals.css` e `src/lib/fonts.ts` |
-| Imagens | `public/assets/` |
+| Home copy, services, starting prices, process, about | `src/content/site.ts` |
+| Selected work cards | `work` in `src/content/site.ts` |
+| Contact links | `contact` in `src/content/site.ts` |
+| Miau Atelier case | `src/content/miau-atelier.ts` |
+| CV (PT and EN, full and one page) | `src/content/resume.ts` |
+| Tailored CV variants for specific roles | `src/content/resume-ai.ts` |
+| Local services price table | `src/content/support.ts` |
+| Colors and fonts | `src/app/globals.css`, `src/lib/fonts.ts` |
+| Images | `public/assets/` |
 
-Regra de estilo: nada de travessão (em dash ou en dash) nos textos.
+Style rule: no em or en dashes in any copy.
 
-## Estrutura
+## Structure
 
 ```
 src/
 ├── app/
-│   ├── (pt)/            # layout <html lang="pt-BR">: home, case, suporte
-│   └── (en)/en/         # layout <html lang="en">: home e case
-├── components/          # Header, Footer, HomePage, MiauCase, SupportPage, BeforeAfter, ...
-├── content/             # todos os textos e dados, por idioma
-└── lib/                 # fontes e URL do site
-public/assets/           # imagens (flyers, OBSIDIAN, Miau Atelier)
+│   ├── (pt)/            # <html lang="pt-BR">: home, case, CV, support
+│   └── (en)/en/         # <html lang="en">: home, case, CV
+├── components/          # Header, Footer, HomePage, MiauCase, ResumePage, ResumeDocument, ThemeToggle, ...
+├── content/             # all copy and data, per language
+└── lib/                 # fonts and site URL
+scripts/
+├── build-cv.py          # prints the CV PDFs
+└── flyers/build.py      # renders the flyers
+public/
+├── assets/              # images, flyers, Miau Atelier case
+└── docs/                # published CV PDFs
 ```
 
-## Comandos
+## Commands
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # gera a pasta out/
+npm run dev                  # http://localhost:3000
+npm run build                # static site in out/
 npm run lint
-```
-
-## Currículo
-
-O conteúdo fica em `src/content/resume.ts` e gera a página `/cv/` e os quatro PDFs em `public/docs/`. Depois de editar o texto:
-
-```bash
-npm run build
-python scripts/build-cv.py   # imprime /cv/pdf/* com o Chrome e grava em public/docs/
-```
-
-O script falha se o completo passar de duas páginas ou o resumido de uma. As rotas `/cv/pdf/` existem só para a impressão e não são indexadas. Versões antigas ficam em `cv-archive/`, fora do git.
-
-## Flyers
-
-Os flyers ficam em `public/assets/flyers/` e são gerados por `scripts/flyers/build.py` (HTML renderizado pelo Chrome, com QR code para joaosantaniello.com/suporte). Textos e preços ficam no próprio script: os locais espelham `src/content/support.ts` e os de projetos espelham os preços "a partir de" da home. Depois de editar:
-
-```bash
+python scripts/build-cv.py   # after a build: CV PDFs to public/docs/ (tailored ones to cv-tailored/, git ignored)
 python scripts/flyers/build.py
 ```
 
+The Python scripts need `playwright`, `pypdf`, `segno` and `pillow`, and use the installed Google Chrome.
+
 ## Deploy
 
-O projeto no Vercel detecta Next.js sozinho. Cada push no `main` publica o site. A URL usada nas imagens de compartilhamento vem de `VERCEL_PROJECT_PRODUCTION_URL` (automática no Vercel) ou de `NEXT_PUBLIC_SITE_URL`, se quiser fixar um domínio próprio.
+Vercel builds every push: branches get preview URLs and `main` goes to production on joaosantaniello.com. `vercel.json` pins the framework to Next.js. The URL used in social previews comes from `VERCEL_PROJECT_PRODUCTION_URL`, or from `NEXT_PUBLIC_SITE_URL` to force a domain.
+
+## How it was built
+
+Built with Claude Code as the primary development environment, with every change reviewed, tested in the browser and committed by hand.
