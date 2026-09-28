@@ -79,7 +79,16 @@ export function ResumeDocument({ locale, variant = 'full', data }: { locale: Loc
                   </a>
                 )}
               </div>
-              <p>{one ? p.onePage : p.text}</p>
+              <p>
+                {one ? p.onePage : p.text}
+                {p.printAllLinks &&
+                  p.links?.slice(1).map((l) => (
+                    <span key={l.href} className="cv-extra-link">
+                      {' '}
+                      <a href={l.href}>{l.label}</a>
+                    </span>
+                  ))}
+              </p>
             </div>
             ))}
         </Section>

@@ -258,6 +258,14 @@ body {
   margin-top: 2pt;
   color: var(--ink-2);
 }
+/* Extra project links (tailored CV) sit on their own line, so the justified text above keeps even spacing. */
+.cv-extra-link {
+  display: block;
+  text-align: left;
+}
+.cv-extra-link a {
+  color: var(--cv-accent);
+}
 .cv-skills li + li {
   margin-top: 2pt;
 }
