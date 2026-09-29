@@ -110,15 +110,16 @@ export function HomePage({ locale }: { locale: Locale }) {
           <SectionHead eyebrow={t.work.eyebrow} title={t.work.title} invert />
           <div className="grid gap-5 md:grid-cols-2">
             {work.map((w) => {
+              const title = typeof w.title === 'string' ? w.title : w.title[locale];
               const body = (
                 <>
                   {w.image && (
                     <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-2xl bg-night">
-                      <Image src={w.image} alt={w.title} fill sizes="(min-width: 768px) 45vw, 90vw" className="object-cover object-[50%_40%]" />
+                      <Image src={w.image} alt={title} fill sizes="(min-width: 768px) 45vw, 90vw" className="object-cover object-[50%_40%]" />
                     </div>
                   )}
                   <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-gold-soft">{w.tag[locale]}</span>
-                  <h3 className="display mt-3 text-[26px] text-on-night">{w.title}</h3>
+                  <h3 className="display mt-3 text-[26px] text-on-night">{title}</h3>
                   <p className="mt-3 text-[15px] text-on-night-muted">{w.text[locale]}</p>
                   {w.linkLabel && (
                     <span className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold text-gold-soft">

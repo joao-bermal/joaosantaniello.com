@@ -227,7 +227,8 @@ export const home = {
 export type WorkItem = {
   key: string;
   tag: Record<Locale, string>;
-  title: string;
+  /** A plain string for names that stay the same in both languages. */
+  title: string | Record<Locale, string>;
   text: Record<Locale, string>;
   image?: string;
   href?: string;
@@ -265,7 +266,7 @@ export const work: WorkItem[] = [
   {
     key: 'retina',
     tag: { pt: 'Visão computacional · MBA USP/Esalq', en: 'Computer vision · MBA USP/Esalq' },
-    title: 'Risco cardiovascular por imagem',
+    title: { pt: 'Risco cardiovascular por imagem', en: 'Cardiovascular risk from retinal images' },
     text: {
       pt: 'Pipeline que analisa fotos de retina para estimar risco cardiovascular automaticamente. Nota 9 de 10 no trabalho de conclusão.',
       en: 'A pipeline that analyzes retinal photos to estimate cardiovascular risk automatically. Graded 9 out of 10 as a capstone project.',
@@ -277,7 +278,7 @@ export const work: WorkItem[] = [
   {
     key: 'bizpoke',
     tag: { pt: 'Atuação profissional', en: 'Professional work' },
-    title: 'Dados e geoprocessamento',
+    title: { pt: 'Dados e geoprocessamento', en: 'Data and GIS' },
     text: {
       pt: 'Desde 2021, dashboards, automações e sistemas de dados para grandes empresas de saneamento e energia, na Bizpoke Soluções em Software.',
       en: 'Since 2021, dashboards, automations and data systems for large water and energy utilities, at Bizpoke Soluções em Software.',
