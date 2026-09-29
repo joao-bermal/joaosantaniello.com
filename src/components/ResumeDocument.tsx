@@ -14,7 +14,7 @@ export function ResumeDocument({ locale, variant = 'full', data }: { locale: Loc
   // `data` swaps in a tailored version (src/content/resume-ai.ts) with the same layout.
   const r = data ?? resume[locale];
   const one = variant === 'onePage';
-  const skills = one ? r.skills.filter((s) => s.onePage) : r.skills;
+  const skills = r.skills.filter((s) => !s.webOnly && (!one || s.onePage));
 
   return (
     <article className={cx('cv', one && 'cv-one')}>

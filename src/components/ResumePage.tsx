@@ -53,7 +53,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
         <div className="wrap pb-12 pt-12 md:pb-16 md:pt-14">
           <dl className="grid grid-cols-2 border-t border-line md:grid-cols-4">
             {r.highlights.map((h, i) => (
-              <div key={h.value} className={cx('pr-5 pt-6', i % 2 === 1 && 'pl-5 md:pl-0', i > 0 && 'md:border-l md:border-line md:pl-6', i > 1 && 'mt-2 md:mt-0')}>
+              <div key={h.value} className={cx('pr-5 pt-6', i % 2 === 1 && 'pl-5 md:pl-0', i % 4 !== 0 && 'md:border-l md:border-line md:pl-6', i > 1 && 'mt-2', i > 3 && 'md:mt-6', i > 1 && i < 4 && 'md:mt-0')}>
                 <dt className="display text-[28px] leading-none text-gold-deep md:text-[34px]">{h.value}</dt>
                 <dd className="mt-2.5 text-[14px] leading-snug text-muted">{h.label}</dd>
               </div>
@@ -83,6 +83,11 @@ export function ResumePage({ locale }: { locale: Locale }) {
       {/* Summary */}
       <Block id="summary" title={r.labels.summary}>
         <p className="max-w-3xl text-[18px] leading-relaxed text-ink-2">{r.summary}</p>
+        {r.summaryExtra?.map((para) => (
+          <p key={para.slice(0, 40)} className="mt-5 max-w-3xl text-[16.5px] leading-relaxed text-ink-2">
+            {para}
+          </p>
+        ))}
       </Block>
 
       {/* Experience */}
@@ -150,7 +155,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
                 <p className="mt-1 text-[14.5px] text-muted">
                   {e.school} · {e.place}
                 </p>
-                <Bullets items={e.details} />
+                <Bullets items={[...e.details, ...(e.extra ?? [])]} />
               </div>
             </div>
           ))}
@@ -163,7 +168,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
           {r.skills.map((s) => (
             <div key={s.label} className="border-t border-line pt-4">
               <dt className="text-[13px] font-semibold uppercase tracking-[0.12em] text-ink">{s.label}</dt>
-              <dd className="mt-2 text-[15px] text-ink-2">{s.items}</dd>
+              <dd className="mt-2 text-[15px] text-ink-2">{s.itemsWeb ?? s.items}</dd>
             </div>
           ))}
           <div className="border-t border-line pt-4">
@@ -173,7 +178,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
           <div className="border-t border-line pt-4">
             <dt className="text-[13px] font-semibold uppercase tracking-[0.12em] text-ink">{r.labels.courses}</dt>
             <dd className="mt-2 text-[15px] text-ink-2">
-              {r.courses.map((c) => (
+              {[...r.courses, ...(r.coursesExtra ?? [])].map((c) => (
                 <span key={c} className="block">
                   {c}
                 </span>
