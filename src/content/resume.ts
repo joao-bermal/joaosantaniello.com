@@ -84,7 +84,7 @@ const en: Resume = {
   meta: {
     title: 'CV',
     description:
-      'João Vitor Bermal Santaniello, software engineer: geospatial data, full-stack development and e-commerce. Experience, projects, education and skills.',
+      'João Vitor Bermal Santaniello, software engineer: full-stack products, AI-augmented delivery and geospatial data. Experience, projects, education and skills.',
   },
   labels: {
     summary: 'Summary',
@@ -100,22 +100,22 @@ const en: Resume = {
     onePage: 'One-page resume (PDF)',
     onePageNote: 'ATS friendly',
     eyebrow: 'Curriculum vitae',
-    intro: 'Six years building software for water, energy, healthcare and telecom, plus the brands and stores I design on my own.',
+    intro: 'Six years building software for water, energy, healthcare and telecom, now AI-native with Claude Code, plus the brands and stores I design on my own.',
     portfolio: 'Portfolio',
     stack: 'Stack',
     extendedNote: 'This is the extended version, with more detail than the PDFs. For applications, download the full CV or the one-page resume.',
   },
   name: 'João Vitor Bermal Santaniello',
-  headline: 'Software Engineer · Geospatial Data, Full-Stack and E-commerce',
+  headline: 'Software Engineer · Full-Stack, AI-Augmented Delivery and Geospatial Data',
   location: 'São José dos Campos, SP, Brazil',
   summary:
-    'Software engineer with six years of production experience across water utilities, energy, healthcare and telecom. I turn operational problems into working software: Python and GeoPandas data pipelines, ArcGIS Enterprise dashboards and web maps, FastAPI and Node.js services, and React and Next.js applications. For Aegea, one of the largest sanitation groups in Brazil, I build the geospatial analyses behind expansion and concession studies and the data model and dashboards of the Regenera landfill biogas operation. MBA in Software Engineering from USP/ESALQ with a 9/10 thesis in computer vision. Fluent in English from years of work with US clients and international AI benchmark programs. I also design brands and online stores, most recently Miau Atelier, a cat furniture brand I built and run for the US market.',
+    'Software engineer with six years of production experience across water utilities, energy, healthcare and telecom. I build full-stack products and data pipelines with FastAPI, Node.js, React, Next.js, Python and ArcGIS. I was the main developer of EyeConnect, a teleophthalmology platform in production, from its clinic DICOM gateway to OCR exam intake, rewrote ISPDrive, a multi-tenant SaaS for internet providers, and build the geospatial analyses behind expansion studies at Aegea, one of the largest sanitation groups in Brazil. Claude Code is now my primary environment. MBA in Software Engineering (USP/ESALQ, thesis 9/10), fluent English with US teams.',
   summaryShort:
-    'Software engineer with six years of production experience in water utilities, energy, healthcare and telecom. I build Python and GeoPandas data pipelines, ArcGIS Enterprise dashboards, FastAPI and Node.js services and React/Next.js applications. For Aegea, one of the largest sanitation groups in Brazil, I cut a recurring geospatial workflow from 3+ hours to about 20 minutes and built the analyses behind its expansion studies. MBA in Software Engineering (USP/ESALQ, thesis 9/10). Fluent English with US teams.',
+    'Software engineer with six years of production experience in water utilities, energy, healthcare and telecom. Main developer of EyeConnect, a teleophthalmology platform in production, and of the ISPDrive rewrite. For Aegea I cut a geospatial workflow from 3+ hours to about 20 minutes. AI-native with Claude Code and MCP. MBA (USP/ESALQ, thesis 9/10), fluent English.',
   highlights: [
     { value: '6 years', label: 'building software in production since 2020' },
     { value: '3h to 20 min', label: 'on a recurring geospatial workflow at Aegea' },
-    { value: '16 states', label: 'covered by census tract indicators for expansion studies' },
+    { value: '~40%', label: 'of EyeConnect’s production code, more than any other author' },
     { value: '9/10', label: 'MBA thesis in computer vision at USP/ESALQ' },
   ],
   experience: [
@@ -131,6 +131,8 @@ const en: Resume = {
             'Aegea is one of the largest private sanitation groups in Brazil. I work with its Expansion Planning team, which uses geospatial data to size markets and prioritize new water and sewer concessions, and with Regenera, its solid waste and landfill biogas operation. The role covers data modeling, Python automation, ArcGIS publishing and requirement work directly with the client.',
           stack: ['Python', 'GeoPandas', 'ArcGIS Pro', 'ArcGIS Enterprise 11.5', 'ArcGIS Dashboards', 'Experience Builder', 'FME', 'PostgreSQL', 'Excel'],
           extra: [
+            'Removed manual steps from weekly routines by automating stage calculations, symbology standardization, file ingestion and PostgreSQL materialized view refreshes with ArcGIS toolboxes, Python and FME.',
+            'Took new products from request to production, such as a critical work order dashboard and a field data collection panel, running requirement refinements with Aegea teams and documenting the dashboard portfolio for a new team.',
             'Built geofeasibility layers (addresses within 50 m of the water network) enriched with CNEFE attributes and income classes by census tract, used to prioritize prospect regions.',
             'Processed rooftop counts from BDGD for Ceará and Santa Catarina with urban and rural filters and published them as dashboards in staging and production.',
             'Modeled a customer reputation layer for Pará by geocoding records against CNEFE and handed the data model to the Aegea data team.',
@@ -139,12 +141,54 @@ const en: Resume = {
             'Created a topology correction tool in GeoPandas and a symbology standardization toolbox reused across dashboards.',
           ],
           bullets: [
-            'Cut a recurring geospatial workflow from more than 3 hours to about 20 minutes by building Spatial Extractor, a reusable Python and GeoPandas tool with parallel spatial joins, validation, grouping, area calculation and Excel/Shapefile export.',
-            'Delivered census tract indicators for 16 Brazilian states by crossing IBGE census data, CNEFE addresses and ANEEL BDGD electricity records, giving the expansion team demand estimates for water and sewer concession studies.',
-            'Co-designed the CITIUS/Regenera data model for landfill biogas operations and loaded its historical and theoretical data (wells, drains, PDRs, collectors, readings, landfill stages), which feeds dashboards with measurement beacons, normalized CH4 classes and weekly filters.',
-            'Removed manual steps from weekly routines by automating stage calculations, symbology standardization, file ingestion and PostgreSQL materialized view refreshes with ArcGIS toolboxes, Python and FME.',
-            'Kept production dashboards running through the ArcGIS Enterprise 11.5 portal migration by auditing and fixing panels, evaluating Experience Builder as a Dashboards replacement and writing a governance script that reports unused portal items for cleanup.',
-            'Took new products from request to production, such as a critical work order dashboard and a field data collection panel, running requirement refinements with Aegea teams, validating data in staging and documenting the dashboard portfolio for a new team.',
+            'Cut a recurring geospatial workflow from more than 3 hours to about 20 minutes with Spatial Extractor, a reusable Python and GeoPandas tool with parallel spatial joins, validation and Excel/Shapefile export.',
+            'Delivered census tract indicators for 16 Brazilian states by crossing IBGE census, CNEFE addresses and ANEEL BDGD records, giving the expansion team demand estimates for concession studies.',
+            'Co-designed the CITIUS/Regenera data model for landfill biogas operations and loaded its historical data (wells, drains, collectors, readings), feeding dashboards with measurement beacons and normalized CH4 classes.',
+            'Kept production dashboards running through the ArcGIS Enterprise 11.5 migration by auditing and fixing panels, and wrote a governance script that reports unused portal items for cleanup.',
+          ],
+        },
+        {
+          title: 'AI-augmented delivery with Claude Code',
+          context: 'Claude Code is now my primary environment at Bizpoke. I write the shared context and tools that let the whole team use it the same way on client projects.',
+          stack: ['Claude Code', 'MCP', 'ClickUp', 'FastAPI', 'DuckDB', 'Apache Sedona', 'H3', 'Redis'],
+          extra: [
+            'Built an OAuth2 client for the ArcGIS Enterprise REST API with automatic backups before every edit and strict separation of production and staging portals, so the agent can update dashboards in bulk safely.',
+            'Turned recurring failures into guardrails: the dashboard skill documents traps found in real sessions and verifies saves through network requests.',
+          ],
+          bullets: [
+            'Authored a shared library of nine Claude Code skills and a root CLAUDE.md inherited by 13 Aegea project folders (project bootstrap, ArcGIS API client, dashboard editing, delivery documents, status reporting), so every teammate works from the same playbook.',
+            'Connected Claude Code through MCP to ClickUp for daily client status reports, and contributed to BizpokeBI, our geospatial data platform, and its bizpoke MCP server with approval-gated writes.',
+          ],
+        },
+        {
+          title: 'EyeConnect · teleophthalmology platform in production',
+          context: 'EyeConnect connects eye clinics to remote ophthalmologists: clinics send exams, doctors write the reports and patients receive the results by link. I was its main developer in 2023 and 2024, wrote about 40% of the platform code in production today and built the clinic gateway alone.',
+          stack: ['Meteor', 'Blaze', 'MongoDB Atlas', 'AWS S3', 'AWS Textract', 'Google Document AI', 'Node.js', 'Orthanc', 'DICOM', 'pydicom', 'Raspberry Pi', 'systemd', 'OpenVPN', 'Docker', 'Meteor Up'],
+          extra: [
+            'Upgraded the platform from Meteor 1.10 to 2.15 and maintained Docker and Meteor Up deploys for the development, QA and production environments.',
+            'Added exam locking with automatic release after an hour, SMS credit monitoring, an SMS resend area and payer types for public, private and health plan exams.',
+            'Classified DICOM exams by SOP class and protocol tags (angiography, retinography, ICG, visual field, OCT macula and disc), with a Python pydicom service as fallback for pixel data and encapsulated PDFs, and a folder state machine with retries and purge.',
+            'Moved the gateway OCR from Google Document AI to AWS Textract, then brought it into the platform for bulk uploads.',
+            'Shipped SMS and email notifications with short links, invoicing and cost reports and a white-label clinic portal.',
+            'Smaller changes to older integrations: patient phone lookup in a hospital TASY (Oracle) database and SFTP support for the Phelcom Eyer retinal camera.',
+          ],
+          bullets: [
+            'Built, as sole developer, a Raspberry Pi exam gateway for clinics: Orthanc receives DICOM from eye devices, and a Node.js service classifies exams, reads PDF reports with AWS Textract and posts them to the platform over OpenVPN.',
+            'Brought the OCR into the platform: bulk PDF uploads to S3, AWS Textract and parsers for 14 exam devices (Zeiss Cirrus and HFA, Spectralis and others), with deduplication and retries.',
+            'Generated rule-based draft reports for visual field and OCT exams and structured reports with PDF output, and integrated the Clinic Web (Linx) API to find patients by CPF and send exams back.',
+          ],
+        },
+        {
+          title: 'ISPDrive · white-label cloud storage for internet providers',
+          context: 'ISPDrive is a cloud storage service that internet providers resell to their subscribers under their own brand, starting with G6 Internet. I built its reporting tools in 2021 and 2022 and have been its only developer since 2024.',
+          stack: ['FastAPI', 'MongoDB Atlas', 'ODMantic', 'Next.js 14', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'DigitalOcean Spaces', 'Docker Compose', 'NGINX', 'Let’s Encrypt', 'pytest'],
+          extra: [
+            'Built the first reporting stack in 2021 and 2022: a report API in Express and MySQL (login history and data usage) and a React dashboard with MUI DataGrid and Recharts, and later moved the upload server from MySQL to MongoDB.',
+            'Covered the API with pytest integration tests against MongoDB with mocked storage.',
+          ],
+          bullets: [
+            'Rewrote the product in FastAPI, MongoDB and Next.js 14 as a multi-tenant SaaS: per-provider branding, sign-in against each provider’s ERP, and uploads and downloads straight to DigitalOcean Spaces through presigned URLs.',
+            'Built the admin area with usage dashboards, an audit trail of 11 action types and a quota report used for invoicing, and deployed it on DigitalOcean with Docker Compose, NGINX and automatic Let’s Encrypt renewal.',
           ],
         },
         {
@@ -161,28 +205,22 @@ const en: Resume = {
           ],
         },
         {
-          title: 'Healthcare, telecom and international utilities',
-          context: 'Client projects outside sanitation: a teleophthalmology service, a SaaS for internet providers and GIS work for US utilities through SBS.',
-          stack: ['FastAPI', 'Node.js', 'MongoDB', 'AWS Textract', 'AWS S3', 'Tesseract', 'Orthanc', 'Next.js', 'Redux', 'DigitalOcean Spaces', 'Docker', 'NGINX', 'ArcGIS JS API', 'FME'],
-          extra: [
-            'Designed REST APIs in FastAPI and Node.js backed by MongoDB, with JWT and OAuth authentication.',
-            'Containerized services with Docker, Docker Compose and NGINX, with hands-on exposure to Kubernetes orchestration.',
-            'Built custom ArcGIS JavaScript API components and FME workflows for utility asset data.',
-          ],
+          title: 'US utilities through SBS',
+          context: 'GIS and integration work for US utilities through SBS, in English with US teams.',
+          stack: ['ArcGIS JS API', 'FME', 'Python', 'JavaScript', 'SAP', 'IBM Maximo'],
+          extra: ['Built custom ArcGIS JavaScript API components and FME workflows for utility asset data.'],
           bullets: [
-            'Built OCR exam processing with AWS Textract, Tesseract and S3, plus a Raspberry Pi and Orthanc deployment, for a remote teleophthalmology service.',
-            'Developed ISPDrive, a SaaS platform for internet providers, with a Next.js and Redux front end, FastAPI services and DigitalOcean Spaces storage with signed URLs.',
-            'Automated GIS and utility workflows for North Las Vegas and Duke Energy (through SBS) working in English with US teams, and integrated SAP, IBM Maximo and Schneider Electric systems through Python and JavaScript SDKs.',
+            'Automated GIS workflows for North Las Vegas and Duke Energy and integrated SAP, IBM Maximo and Schneider Electric via Python and JS SDKs.',
           ],
         },
       ],
       onePage: [
-        'Cut a recurring geospatial workflow at Aegea from more than 3 hours to about 20 minutes by building a reusable Python and GeoPandas extraction tool with parallel spatial joins, validation and Excel/Shapefile export.',
-        'Delivered census tract indicators for 16 Brazilian states by crossing IBGE, CNEFE and ANEEL BDGD data, supporting water and sewer concession studies.',
-        'Co-designed the CITIUS/Regenera landfill biogas data model and loaded its historical data, feeding ArcGIS dashboards, web maps and heatmaps used by operations.',
-        'Kept production dashboards running through the ArcGIS Enterprise 11.5 migration and automated weekly routines with ArcGIS toolboxes, Python, FME and PostgreSQL.',
-        'Led front-end and mobile delivery for DOMO (Equatorial Energia): offline map editing in React Native plus Next.js, TypeScript and Redux screens designed in Figma.',
-        'Built OCR exam processing (AWS Textract, S3) for teleophthalmology and ISPDrive, a SaaS for internet providers (Next.js, FastAPI, DigitalOcean Spaces).',
+        'Cut a recurring geospatial workflow at Aegea from more than 3 hours to about 20 minutes with a reusable Python and GeoPandas tool, and delivered census tract indicators for 16 states for concession studies.',
+        'Co-designed the CITIUS/Regenera landfill biogas data model and kept production ArcGIS dashboards running through the Enterprise 11.5 migration.',
+        'Main developer of EyeConnect (teleophthalmology, in production): Raspberry Pi DICOM gateway and OCR exam intake with AWS Textract.',
+        'Rewrote ISPDrive, a multi-tenant storage SaaS for internet providers, in FastAPI, MongoDB and Next.js 14.',
+        'Authored nine shared Claude Code skills and MCP connections (ClickUp, the bizpoke MCP server) used across 13 Aegea projects.',
+        'Led front-end and mobile delivery for DOMO (Equatorial Energia): offline map editing in React Native plus Next.js, TypeScript and Redux screens.',
       ],
     },
     {
@@ -194,8 +232,7 @@ const en: Resume = {
       groups: [
         {
           bullets: [
-            'Wrote complex Python problems with reference solutions, test suites and failure analyses for LiveCodeBench and BigCodeBench, each designed to break at least 2 of 4 frontier models (Qwen, DeepSeek, Claude Sonnet, Nova).',
-            'Reviewed prompts, specifications and grading criteria for code generation, self-repair and execution tasks in the Mango and Fairylights programs, working fully in English with global teams.',
+            'Wrote Python problems with reference solutions and test suites for LiveCodeBench and BigCodeBench, each designed to break at least 2 of 4 frontier models, and reviewed prompts and grading criteria in the Mango and Fairylights programs.',
           ],
         },
       ],
@@ -212,8 +249,7 @@ const en: Resume = {
       groups: [
         {
           bullets: [
-            'Shipped features for client projects in React, Node.js, Python and C#, versioned with Git across several teams.',
-            'Produced, analyzed and published spatial data with ArcGIS Pro and ArcGIS Enterprise, collaborating with offshore teams in English.',
+            'Shipped React, Node.js, Python and C# features for client projects and produced spatial data with ArcGIS Pro and Enterprise alongside offshore teams, in English.',
           ],
         },
       ],
@@ -225,15 +261,32 @@ const en: Resume = {
       place: 'São José dos Campos, SP',
       period: 'Oct 2020 to Mar 2021',
       stack: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'PHP', 'MySQL'],
-      groups: [{ bullets: ['Delivered front-end and back-end changes from business requirements with HTML, CSS, JavaScript, jQuery, PHP and MySQL.'] }],
+      groups: [{ bullets: ['Delivered front-end and back-end changes with HTML, CSS, JavaScript, jQuery, PHP and MySQL.'] }],
       onePage: null,
     },
   ],
   projects: [
     {
+      name: 'Triage Desk',
+      role: 'AI support triage for D2C brands · 2026',
+      text: 'Live demo of AI customer support for several brands: n8n ingests messages, a Claude agent in a Supabase Edge Function drafts replies with policy and catalog sub-agents, and staff approve them in Next.js. Brand data is isolated with Postgres RLS and pgTAP tests.',
+      links: [
+        { label: 'triage.joaosantaniello.com', href: 'https://triage.joaosantaniello.com' },
+        { label: 'Code: github.com/joao-bermal/triage-desk', href: 'https://github.com/joao-bermal/triage-desk' },
+      ],
+      printAllLinks: true,
+      details: [
+        'Orchestrator agent with strict tools, structured outputs and prompt caching; about 20 seconds and US$0.03 per ticket.',
+        'Idempotent ingestion, HMAC verified Shopify order sync, a backlog sweep and an error workflow in n8n.',
+        'Public demo with a daily reset and a cap on re-runs; a technical design document in the repository.',
+      ],
+      stack: ['Claude API', 'Supabase', 'PostgreSQL RLS', 'Edge Functions', 'n8n', 'Next.js', 'Vercel', 'pgTAP'],
+      onePage: 'Live demo: Claude agent with sub-agents in a Supabase Edge Function, n8n workflows, RLS with pgTAP tests, Next.js on Vercel.',
+    },
+    {
       name: 'Miau Atelier',
       role: 'Founder, designer and developer · 2026',
-      text: 'A cat furniture brand for the US market, built end to end: brand identity, Shopify store in USD with Stripe, Python automation over the Shopify Admin GraphQL API and an AI image pipeline that turns supplier photos into editorial product photography.',
+      text: 'A cat furniture brand for the US market, built end to end: brand identity, Shopify store in USD with Stripe, Python automation over the Admin GraphQL API and an AI image pipeline for product photography.',
       links: [
         { label: 'miauatelier.com', href: 'https://miauatelier.com' },
         { label: 'Case study', href: '/en/cases/miau-atelier/' },
@@ -248,8 +301,8 @@ const en: Resume = {
     },
     {
       name: 'NAMMAN',
-      role: 'Web product',
-      text: 'A live app that runs entirely in the browser and syncs amplifier profiles to the user’s computer, with secure sign-in and no server.',
+      role: 'Next.js on Vercel · 2026',
+      text: 'A browser-only app that syncs Neural Amp Modeler profiles from the TONE3000 API to the user’s disk: OAuth 2.0 with PKCE, File System Access API, IndexedDB history, retries with backoff and throttled bulk downloads, with no server.',
       links: [
         { label: 'namman.vercel.app', href: 'https://namman.vercel.app/' },
         { label: 'GitHub', href: 'https://github.com/joao-bermal/NAMMAN' },
@@ -277,7 +330,7 @@ const en: Resume = {
       place: 'Piracicaba, SP',
       period: '2024 to 2026',
       details: [
-        'Coursework in software architecture, APIs, micro-frontends, cloud, Docker and Kubernetes, DDD, observability, testing, UX, AI and Big Data, leadership and change management.',
+        'Coursework in software architecture, APIs, cloud, Docker and Kubernetes, DDD, observability, testing and AI.',
         'Thesis (9/10): a three-stage deep learning pipeline for retinal photographs (vessel segmentation, artery/vein classification and arteriolar-to-venular ratio) as a cardiovascular risk marker. PyTorch and OpenCV on DRIVE, IOSTAR, RITE and LES-AV; Dice 0.827 and macro F1 0.963.',
       ],
       onePage: 'Thesis graded 9/10: deep learning pipeline for retinal images (Dice 0.827, A/V macro F1 0.963).',
@@ -304,19 +357,18 @@ const en: Resume = {
       items: 'GeoPandas, ArcGIS Pro, ArcGIS Enterprise 11.5, ArcGIS Dashboards, Experience Builder, ArcGIS JS API, FME, PostgreSQL, enterprise geodatabases, ETL and data modeling',
       onePage: true,
     },
-    { label: 'Back end', items: 'FastAPI, Node.js, REST APIs, JWT, OAuth, WebSockets, MongoDB, PostgreSQL', onePage: true },
+    { label: 'Back end', items: 'FastAPI, Node.js, Meteor, REST APIs, JWT, OAuth, WebSockets, MongoDB, PostgreSQL, Supabase, DICOM', onePage: true },
     { label: 'Front end and mobile', items: 'React, Next.js, Redux Toolkit, Tailwind CSS, MUI, React Native (Expo), Figma', onePage: true },
-    { label: 'Cloud and DevOps', items: 'Docker, Docker Compose, NGINX, Linux, AWS (S3, Textract, EC2), DigitalOcean Spaces, Vercel, Kubernetes (basic)', onePage: true },
-    { label: 'AI and ML', items: 'PyTorch, OpenCV, NumPy, Albumentations, OCR, LLM evaluation, AI coding agents (Claude Code, MCP)', onePage: true },
+    { label: 'Cloud and DevOps', items: 'Docker, NGINX, Linux, AWS (S3, Textract, EC2, CloudWatch), DigitalOcean, Vercel, n8n, basic Kubernetes', onePage: true },
+    { label: 'AI and ML', items: 'Claude Code (skills, MCP, sub-agents), Claude API, PyTorch, OpenCV, OCR with AWS Textract, LLM evaluation', onePage: true },
     { label: 'E-commerce and design', items: 'Shopify (Admin GraphQL, Liquid), Stripe, brand identity, generative image pipelines' },
-    { label: 'Ways of working', items: 'Scrum, Git and GitFlow, Jira, ClickUp, Bitbucket, technical documentation, remote work with US and offshore teams' },
+    { label: 'Ways of working', items: 'Scrum, Git and GitFlow, Jira, ClickUp, technical documentation, remote work with US teams' },
   ],
   languages: 'Portuguese (native) · English (fluent, daily professional use)',
   courses: [
     'Python 3: Deep Dive, Part 1 (Udemy, 2025)',
     'Deep Learning Using ArcGIS (Esri, 2024)',
-    'ArcGIS Fundamentals (Esri, 2021)',
-    'AWS Summit São Paulo (2023) · Esri Developer Summit (2022)',
+    'AWS Summit São Paulo (2023)',
   ],
   files: {
     full: '/docs/Joao_Santaniello_CV_EN.pdf',
@@ -328,7 +380,7 @@ const pt: Resume = {
   meta: {
     title: 'Currículo',
     description:
-      'João Vitor Bermal Santaniello, engenheiro de software: dados geoespaciais, desenvolvimento full-stack e e-commerce. Experiência, projetos, formação e habilidades.',
+      'João Vitor Bermal Santaniello, engenheiro de software: produtos full-stack, entrega com IA e dados geoespaciais. Experiência, projetos, formação e habilidades.',
   },
   labels: {
     summary: 'Resumo',
@@ -344,22 +396,22 @@ const pt: Resume = {
     onePage: 'Currículo de uma página (PDF)',
     onePageNote: 'Compatível com ATS',
     eyebrow: 'Currículo',
-    intro: 'Seis anos construindo software para saneamento, energia, saúde e telecom, além das marcas e lojas que crio por conta própria.',
+    intro: 'Seis anos construindo software para saneamento, energia, saúde e telecom, hoje com IA no centro do trabalho via Claude Code, além das marcas e lojas que crio por conta própria.',
     portfolio: 'Portfólio',
     stack: 'Stack',
     extendedNote: 'Esta é a versão estendida, com mais detalhes que os PDFs. Para processos seletivos, baixe o currículo completo ou o de uma página.',
   },
   name: 'João Vitor Bermal Santaniello',
-  headline: 'Engenheiro de Software · Dados Geoespaciais, Full-Stack e E-commerce',
+  headline: 'Engenheiro de Software · Full-Stack, Entrega com IA e Dados Geoespaciais',
   location: 'São José dos Campos, SP',
   summary:
-    'Engenheiro de software com seis anos de experiência em produção nos setores de saneamento, energia, saúde e telecom. Transformo problemas operacionais em software funcionando: pipelines de dados em Python e GeoPandas, dashboards e web maps no ArcGIS Enterprise, serviços em FastAPI e Node.js e aplicações em React e Next.js. Para a Aegea, um dos maiores grupos de saneamento do Brasil, construo as análises geoespaciais por trás dos estudos de expansão e concessão e o modelo de dados e os painéis da operação de biogás de aterros do Regenera. MBA em Engenharia de Software pela USP/ESALQ, com TCC nota 9/10 em visão computacional. Inglês fluente, usado há anos com clientes dos Estados Unidos e em programas internacionais de benchmark de IA. Também crio marcas e lojas virtuais, mais recentemente a Miau Atelier, marca de móveis para gatos que construí e opero para o mercado americano.',
+    'Engenheiro de software com seis anos de experiência em produção nos setores de saneamento, energia, saúde e telecom. Construo produtos full-stack e pipelines de dados com FastAPI, Node.js, React, Next.js, Python e ArcGIS. Fui o principal desenvolvedor do EyeConnect, plataforma de teleoftalmologia em produção, do gateway DICOM das clínicas à entrada de exames por OCR, reescrevi o ISPDrive, SaaS multi-tenant para provedores de internet, e construo as análises geoespaciais dos estudos de expansão da Aegea, um dos maiores grupos de saneamento do Brasil. Hoje o Claude Code é meu principal ambiente de desenvolvimento. MBA em Engenharia de Software (USP/ESALQ, TCC 9/10) e inglês fluente com times dos EUA.',
   summaryShort:
-    'Engenheiro de software com seis anos de experiência em produção em saneamento, energia, saúde e telecom. Construo pipelines de dados em Python e GeoPandas, dashboards no ArcGIS Enterprise, serviços em FastAPI e Node.js e aplicações em React/Next.js. Na Aegea, um dos maiores grupos de saneamento do Brasil, reduzi um fluxo geoespacial recorrente de mais de 3 horas para cerca de 20 minutos e construí as análises dos estudos de expansão. MBA em Engenharia de Software (USP/ESALQ, TCC 9/10). Inglês fluente com times dos EUA.',
+    'Engenheiro de software com seis anos de experiência em produção em saneamento, energia, saúde e telecom. Principal desenvolvedor do EyeConnect (teleoftalmologia) e da reescrita do ISPDrive. Na Aegea, reduzi um fluxo geoespacial de 3+ horas para cerca de 20 minutos. IA via Claude Code e MCP. MBA (USP/ESALQ, TCC 9/10), inglês fluente.',
   highlights: [
     { value: '6 anos', label: 'construindo software em produção desde 2020' },
     { value: '3h para 20 min', label: 'em um fluxo geoespacial recorrente da Aegea' },
-    { value: '16 estados', label: 'com indicadores por setor censitário para estudos de expansão' },
+    { value: '~40%', label: 'do código do EyeConnect em produção, mais que qualquer outro autor' },
     { value: '9/10', label: 'no TCC do MBA em visão computacional na USP/ESALQ' },
   ],
   experience: [
@@ -375,6 +427,8 @@ const pt: Resume = {
             'A Aegea é um dos maiores grupos privados de saneamento do Brasil. Trabalho com o time de Planejamento de Expansão, que usa dados geoespaciais para dimensionar mercados e priorizar novas concessões de água e esgoto, e com a Regenera, operação de resíduos sólidos e biogás de aterros. A função vai da modelagem de dados à automação em Python, publicação no ArcGIS e levantamento de requisitos direto com o cliente.',
           stack: ['Python', 'GeoPandas', 'ArcGIS Pro', 'ArcGIS Enterprise 11.5', 'ArcGIS Dashboards', 'Experience Builder', 'FME', 'PostgreSQL', 'Excel'],
           extra: [
+            'Eliminei etapas manuais de rotinas semanais automatizando cálculo de etapas, padronização de simbologia, ingestão de arquivos e atualização de views materializadas no PostgreSQL com toolboxes do ArcGIS, Python e FME.',
+            'Levei novos produtos da solicitação à produção, como o dashboard de OS críticas e o painel de dados de coleta, conduzindo refinamentos de requisitos com a Aegea e documentando o portfólio de dashboards para um novo time.',
             'Construí camadas de geofactíveis (endereços a até 50 m da rede de água) enriquecidas com atributos do CNEFE e classes de renda por setor censitário, usadas para priorizar regiões de prospecção.',
             'Processei a contagem de telhados da BDGD para Ceará e Santa Catarina com filtros urbano e rural e publiquei os resultados em dashboards de homologação e produção.',
             'Modelei a camada de reputação de clientes do Pará geocodificando registros com o CNEFE e entreguei o modelo de dados ao time de dados da Aegea.',
@@ -383,12 +437,54 @@ const pt: Resume = {
             'Criei uma ferramenta de correção de topologia em GeoPandas e uma toolbox de padronização de simbologia reaproveitada nos dashboards.',
           ],
           bullets: [
-            'Reduzi um fluxo geoespacial recorrente de mais de 3 horas para cerca de 20 minutos criando o Spatial Extractor, ferramenta reutilizável em Python e GeoPandas com spatial joins paralelos, validação, agrupamento, cálculo de área e exportação para Excel e Shapefile.',
-            'Entreguei indicadores por setor censitário para 16 estados cruzando Censo do IBGE, endereços do CNEFE e dados da BDGD da ANEEL, dando ao time de expansão estimativas de demanda para estudos de concessão de água e esgoto.',
-            'Participei da definição do modelo de dados CITIUS/Regenera para a operação de biogás de aterros e fiz a carga dos dados históricos e teóricos (poços, drenos, PDRs, coletores, medições, etapas), que alimentam painéis com faróis de medição, classes de CH4 normalizado e filtros semanais.',
-            'Eliminei etapas manuais de rotinas semanais automatizando cálculo de etapas, padronização de simbologia, ingestão de arquivos e atualização de views materializadas no PostgreSQL com toolboxes do ArcGIS, Python e FME.',
-            'Mantive os painéis de produção funcionando na migração do Portal para o ArcGIS Enterprise 11.5, auditando e corrigindo dashboards, avaliando o Experience Builder como substituto do Dashboards e criando um script de governança que aponta itens sem uso no portal para limpeza.',
-            'Levei novos produtos da solicitação à produção, como o dashboard de OS críticas e o painel de dados de coleta, conduzindo refinamentos de requisitos com a Aegea, validando dados em homologação e documentando o portfólio de dashboards para um novo time.',
+            'Reduzi um fluxo geoespacial recorrente de mais de 3 horas para cerca de 20 minutos com o Spatial Extractor, ferramenta em Python e GeoPandas com spatial joins paralelos, validação e exportação para Excel e Shapefile.',
+            'Entreguei indicadores por setor censitário para 16 estados cruzando Censo do IBGE, endereços do CNEFE e registros da BDGD da ANEEL, dando ao time de expansão estimativas de demanda para estudos de concessão.',
+            'Participei da definição do modelo de dados CITIUS/Regenera para o biogás de aterros e fiz a carga dos dados históricos, que alimentam painéis com faróis de medição e classes de CH4 normalizado.',
+            'Mantive os painéis de produção funcionando na migração para o ArcGIS Enterprise 11.5, auditando e corrigindo dashboards, e criei um script de governança que aponta itens sem uso no portal para limpeza.',
+          ],
+        },
+        {
+          title: 'Entrega com IA usando Claude Code',
+          context: 'Hoje o Claude Code é meu principal ambiente na Bizpoke. Escrevo o contexto e as ferramentas compartilhadas que permitem ao time inteiro usá-lo do mesmo jeito nos projetos de clientes.',
+          stack: ['Claude Code', 'MCP', 'ClickUp', 'FastAPI', 'DuckDB', 'Apache Sedona', 'H3', 'Redis'],
+          extra: [
+            'Construí um cliente OAuth2 para a API REST do ArcGIS Enterprise com backup automático antes de cada edição e separação rígida entre portais de produção e homologação, para o agente atualizar dashboards em lote com segurança.',
+            'Transformei falhas recorrentes em salvaguardas: a skill de dashboards documenta armadilhas encontradas em sessões reais e confere cada gravação pelas requisições de rede.',
+          ],
+          bullets: [
+            'Criei uma biblioteca compartilhada de nove skills de Claude Code e um CLAUDE.md raiz herdado por 13 pastas de projetos da Aegea (bootstrap de projeto, cliente da API do ArcGIS, edição de dashboards, documentos de entrega, status reports), para todo o time trabalhar com o mesmo playbook.',
+            'Conectei o Claude Code ao ClickUp via MCP para status reports diários aos clientes e contribuí com o BizpokeBI, nossa plataforma de dados geoespaciais, e com o seu servidor MCP bizpoke, com gravações sujeitas a aprovação.',
+          ],
+        },
+        {
+          title: 'EyeConnect · plataforma de teleoftalmologia em produção',
+          context: 'O EyeConnect conecta clínicas oftalmológicas a médicos remotos: a clínica envia os exames, o médico emite o laudo e o paciente recebe o resultado por link. Fui o principal desenvolvedor em 2023 e 2024, escrevi cerca de 40% do código da plataforma que está em produção hoje e construí sozinho o gateway das clínicas.',
+          stack: ['Meteor', 'Blaze', 'MongoDB Atlas', 'AWS S3', 'AWS Textract', 'Google Document AI', 'Node.js', 'Orthanc', 'DICOM', 'pydicom', 'Raspberry Pi', 'systemd', 'OpenVPN', 'Docker', 'Meteor Up'],
+          extra: [
+            'Atualizei a plataforma do Meteor 1.10 para o 2.15 e mantive os deploys com Docker e Meteor Up nos ambientes de desenvolvimento, QA e produção.',
+            'Adicionei a trava de exames com liberação automática após uma hora, o monitoramento de créditos de SMS, a área de reenvio de SMS e os tipos de pagador (SUS, particular e convênio).',
+            'Classifiquei os exames DICOM pela SOP class e pelas tags de protocolo (angiografia, retinografia, indocianina verde, campo visual, OCT de mácula e disco), com um serviço Python em pydicom como alternativa para imagens e PDFs encapsulados, e uma máquina de estados de pastas com novas tentativas e limpeza.',
+            'Troquei o OCR do gateway do Google Document AI para o AWS Textract e depois levei esse OCR para a plataforma, para uploads em lote.',
+            'Entreguei notificações por SMS e e-mail com links curtos, relatórios de faturamento e custos e um portal white-label para as clínicas.',
+            'Mudanças menores em integrações antigas: busca do telefone do paciente no banco TASY (Oracle) de um hospital e suporte a SFTP para a câmera de retina Phelcom Eyer.',
+          ],
+          bullets: [
+            'Construí sozinho um gateway de exames em Raspberry Pi para clínicas: o Orthanc recebe o DICOM dos aparelhos e um serviço Node.js classifica os exames, lê os PDFs com AWS Textract e envia tudo à plataforma via OpenVPN.',
+            'Levei o OCR para a plataforma: upload de PDFs em lote para o S3, AWS Textract e leitores para 14 aparelhos (Zeiss Cirrus e HFA, Spectralis e outros), com deduplicação e novas tentativas.',
+            'Gerei pré-laudos automáticos por regras para campo visual e OCT e laudos estruturados com saída em PDF, e integrei a API da Clinic Web (Linx) para buscar pacientes pelo CPF e devolver os exames.',
+          ],
+        },
+        {
+          title: 'ISPDrive · armazenamento em nuvem white-label para provedores',
+          context: 'O ISPDrive é um serviço de armazenamento em nuvem que provedores de internet revendem aos seus assinantes com a própria marca, começando pela G6 Internet. Construí suas ferramentas de relatório em 2021 e 2022 e sou o único desenvolvedor desde 2024.',
+          stack: ['FastAPI', 'MongoDB Atlas', 'ODMantic', 'Next.js 14', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'DigitalOcean Spaces', 'Docker Compose', 'NGINX', 'Let’s Encrypt', 'pytest'],
+          extra: [
+            'Construí a primeira camada de relatórios em 2021 e 2022: uma API em Express e MySQL (histórico de login e uso de dados) e um dashboard em React com MUI DataGrid e Recharts, e depois migrei o servidor de upload de MySQL para MongoDB.',
+            'Cobri a API com testes de integração em pytest contra o MongoDB, com o storage simulado.',
+          ],
+          bullets: [
+            'Reescrevi o produto em FastAPI, MongoDB e Next.js 14 como SaaS multi-tenant: marca própria por provedor, login pelo ERP de cada provedor e upload e download direto no DigitalOcean Spaces com URLs pré-assinadas.',
+            'Construí a área administrativa com dashboards de uso, trilha de auditoria de 11 tipos de ação e relatório de cotas para faturamento, e fiz o deploy na DigitalOcean com Docker Compose, NGINX e Let’s Encrypt automático.',
           ],
         },
         {
@@ -400,33 +496,27 @@ const pt: Resume = {
             'Produzi os protótipos de tela do fluxo de validação de demandas, incluindo a fila de demandas aguardando aprovação da Equatorial.',
           ],
           bullets: [
-            'Liderei o front-end e o mobile do DOMO, construindo em React Native (Expo) um componente de mapa com funcionamento offline, inclusão, edição e remoção de feições, formulários de atributos, camadas adicionais e suporte a tablets.',
+            'Liderei o front-end e o mobile do DOMO, construindo em React Native (Expo) um componente de mapa offline com inclusão, edição e remoção de feições, formulários de atributos e suporte a tablets.',
             'Prototipei no Figma o fluxo de validação de projetos e implementei em Next.js, TypeScript, Redux e MUI após aprovação da Equatorial.',
           ],
         },
         {
-          title: 'Saúde, telecom e utilities internacionais',
-          context: 'Projetos de clientes fora do saneamento: um serviço de teleoftalmologia, um SaaS para provedores de internet e trabalhos de GIS para utilities dos EUA via SBS.',
-          stack: ['FastAPI', 'Node.js', 'MongoDB', 'AWS Textract', 'AWS S3', 'Tesseract', 'Orthanc', 'Next.js', 'Redux', 'DigitalOcean Spaces', 'Docker', 'NGINX', 'ArcGIS JS API', 'FME'],
-          extra: [
-            'Desenhei APIs REST em FastAPI e Node.js com MongoDB, autenticação JWT e OAuth.',
-            'Conteinerizei serviços com Docker, Docker Compose e NGINX, com experiência prática em orquestração com Kubernetes.',
-            'Construí componentes customizados com a ArcGIS JavaScript API e fluxos no FME para dados de ativos de utilities.',
-          ],
+          title: 'Utilities dos EUA via SBS',
+          context: 'Trabalhos de GIS e integração para utilities dos EUA via SBS, em inglês com times americanos.',
+          stack: ['ArcGIS JS API', 'FME', 'Python', 'JavaScript', 'SAP', 'IBM Maximo'],
+          extra: ['Construí componentes customizados com a ArcGIS JavaScript API e fluxos no FME para dados de ativos de utilities.'],
           bullets: [
-            'Construí o processamento de exames com OCR usando AWS Textract, Tesseract e S3, além de uma implantação com Raspberry Pi e Orthanc, para um serviço de teleoftalmologia.',
-            'Desenvolvi o ISPDrive, plataforma SaaS para provedores de internet, com front-end em Next.js e Redux, serviços em FastAPI e armazenamento no DigitalOcean Spaces com URLs assinadas.',
-            'Automatizei fluxos de GIS e utilities para North Las Vegas e Duke Energy (via SBS) trabalhando em inglês com times dos EUA, e integrei sistemas SAP, IBM Maximo e Schneider Electric com SDKs em Python e JavaScript.',
+            'Automatizei fluxos de GIS para North Las Vegas e Duke Energy e integrei SAP, IBM Maximo e Schneider Electric com SDKs em Python e JS.',
           ],
         },
       ],
       onePage: [
-        'Reduzi um fluxo geoespacial recorrente da Aegea de mais de 3 horas para cerca de 20 minutos com uma ferramenta reutilizável em Python e GeoPandas, com spatial joins paralelos, validação e exportação para Excel e Shapefile.',
-        'Entreguei indicadores por setor censitário para 16 estados cruzando IBGE, CNEFE e BDGD da ANEEL, apoiando estudos de concessão de água e esgoto.',
-        'Participei da definição do modelo de dados CITIUS/Regenera (biogás de aterros) e fiz a carga dos históricos, alimentando dashboards, web maps e heatmaps usados pela operação.',
-        'Mantive os painéis de produção na migração para o ArcGIS Enterprise 11.5 e automatizei rotinas semanais com toolboxes do ArcGIS, Python, FME e PostgreSQL.',
-        'Liderei o front-end e o mobile do DOMO (Equatorial Energia): edição de mapas offline em React Native e telas em Next.js, TypeScript e Redux desenhadas no Figma.',
-        'Construí o processamento de exames com OCR (AWS Textract, S3) para teleoftalmologia e o ISPDrive, SaaS para provedores (Next.js, FastAPI, DigitalOcean Spaces).',
+        'Reduzi um fluxo geoespacial recorrente da Aegea de mais de 3 horas para cerca de 20 minutos com uma ferramenta em GeoPandas e entreguei indicadores por setor censitário para 16 estados.',
+        'Participei da definição do modelo de dados CITIUS/Regenera (biogás de aterros) e mantive os painéis do ArcGIS em produção na migração para o Enterprise 11.5.',
+        'Principal desenvolvedor do EyeConnect (teleoftalmologia, em produção): gateway DICOM em Raspberry Pi e entrada de exames por OCR com AWS Textract.',
+        'Reescrevi o ISPDrive, SaaS multi-tenant de armazenamento para provedores, em FastAPI, MongoDB e Next.js 14.',
+        'Criei nove skills compartilhadas de Claude Code e conexões MCP (ClickUp, servidor bizpoke) usadas em 13 projetos da Aegea.',
+        'Liderei o front-end e o mobile do DOMO (Equatorial Energia): edição de mapas offline em React Native e telas em Next.js, TypeScript e Redux.',
       ],
     },
     {
@@ -438,8 +528,7 @@ const pt: Resume = {
       groups: [
         {
           bullets: [
-            'Escrevi problemas complexos em Python com soluções de referência, suítes de teste e análises de falha para o LiveCodeBench e o BigCodeBench, cada um desenhado para derrubar pelo menos 2 de 4 modelos de ponta (Qwen, DeepSeek, Claude Sonnet, Nova).',
-            'Revisei prompts, especificações e critérios de avaliação de tarefas de geração de código, self-repair e execução nos programas Mango e Fairylights, trabalhando inteiramente em inglês com times globais.',
+            'Escrevi problemas em Python com soluções de referência e suítes de teste para o LiveCodeBench e o BigCodeBench, cada um desenhado para derrubar pelo menos 2 de 4 modelos de ponta, e revisei prompts e critérios de avaliação nos programas Mango e Fairylights.',
           ],
         },
       ],
@@ -454,12 +543,11 @@ const pt: Resume = {
       groups: [
         {
           bullets: [
-            'Entreguei funcionalidades para projetos de clientes em React, Node.js, Python e C#, com versionamento em Git em vários times.',
-            'Produzi, analisei e publiquei dados espaciais com ArcGIS Pro e ArcGIS Enterprise, colaborando em inglês com times offshore.',
+            'Entreguei funcionalidades em React, Node.js, Python e C# para projetos de clientes e produzi dados espaciais com ArcGIS Pro e Enterprise junto a times offshore, em inglês.',
           ],
         },
       ],
-      onePage: ['Entreguei funcionalidades em React, Node.js, Python e C# e produzi dados espaciais com ArcGIS Pro e Enterprise junto a times offshore.'],
+      onePage: ['Entreguei funcionalidades em React, Node.js, Python e C# e produzi dados espaciais com ArcGIS junto a times offshore.'],
     },
     {
       role: 'Estagiário de Desenvolvimento Web',
@@ -467,15 +555,32 @@ const pt: Resume = {
       place: 'São José dos Campos, SP',
       period: 'Out 2020 a Mar 2021',
       stack: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'PHP', 'MySQL'],
-      groups: [{ bullets: ['Implementei mudanças de front-end e back-end a partir de requisitos de negócio com HTML, CSS, JavaScript, jQuery, PHP e MySQL.'] }],
+      groups: [{ bullets: ['Implementei mudanças de front-end e back-end com HTML, CSS, JavaScript, jQuery, PHP e MySQL.'] }],
       onePage: null,
     },
   ],
   projects: [
     {
+      name: 'Triage Desk',
+      role: 'Triagem de suporte com IA para marcas D2C · 2026',
+      text: 'Demo publicada de atendimento ao cliente com IA para várias marcas: o n8n recebe as mensagens, um agente Claude numa Edge Function do Supabase redige a resposta com subagentes de políticas e catálogo, e o time aprova no Next.js. Os dados de cada marca ficam isolados com RLS no Postgres e testes em pgTAP.',
+      links: [
+        { label: 'triage.joaosantaniello.com', href: 'https://triage.joaosantaniello.com' },
+        { label: 'Código: github.com/joao-bermal/triage-desk', href: 'https://github.com/joao-bermal/triage-desk' },
+      ],
+      printAllLinks: true,
+      details: [
+        'Agente orquestrador com ferramentas estritas, saídas estruturadas e prompt caching; cerca de 20 segundos e US$ 0,03 por ticket.',
+        'Ingestão idempotente, sincronização de pedidos da Shopify com verificação HMAC, varredura de backlog e workflow de erros no n8n.',
+        'Demo pública com reset diário e limite de novas triagens; documento de design técnico no repositório.',
+      ],
+      stack: ['API do Claude', 'Supabase', 'PostgreSQL RLS', 'Edge Functions', 'n8n', 'Next.js', 'Vercel', 'pgTAP'],
+      onePage: 'Demo publicada: agente Claude com subagentes numa Edge Function do Supabase, n8n, RLS com pgTAP e Next.js na Vercel.',
+    },
+    {
       name: 'Miau Atelier',
       role: 'Fundador, designer e desenvolvedor · 2026',
-      text: 'Marca de móveis para gatos para o mercado americano, construída de ponta a ponta: identidade visual, loja Shopify em dólar com Stripe, automações em Python sobre a Admin GraphQL API da Shopify e um pipeline de IA que transforma fotos de fornecedor em fotografia editorial de produto.',
+      text: 'Marca de móveis para gatos para o mercado americano, construída de ponta a ponta: identidade visual, loja Shopify em dólar com Stripe, automações em Python sobre a Admin GraphQL API e um pipeline de IA para fotografia de produto.',
       links: [
         { label: 'miauatelier.com', href: 'https://miauatelier.com' },
         { label: 'Ver o case', href: '/cases/miau-atelier/' },
@@ -490,8 +595,8 @@ const pt: Resume = {
     },
     {
       name: 'NAMMAN',
-      role: 'Produto web',
-      text: 'App publicado que roda inteiro no navegador e sincroniza perfis de amplificador com o computador do usuário, com login seguro e sem servidor.',
+      role: 'Next.js na Vercel · 2026',
+      text: 'App que roda inteiro no navegador e sincroniza perfis do Neural Amp Modeler da API do TONE3000 com o disco do usuário: OAuth 2.0 com PKCE, File System Access API, histórico em IndexedDB, novas tentativas com backoff e downloads em lote controlados, sem servidor.',
       links: [
         { label: 'namman.vercel.app', href: 'https://namman.vercel.app/' },
         { label: 'GitHub', href: 'https://github.com/joao-bermal/NAMMAN' },
@@ -519,7 +624,7 @@ const pt: Resume = {
       place: 'Piracicaba, SP',
       period: '2024 a 2026',
       details: [
-        'Arquitetura de software, APIs, micro-frontends, cloud, Docker e Kubernetes, DDD, observabilidade, testes, UX, IA e Big Data, liderança e gestão da mudança.',
+        'Arquitetura de software, APIs, cloud, Docker e Kubernetes, DDD, observabilidade, testes e IA.',
         'TCC (nota 9/10): pipeline de deep learning em três etapas para retinografias (segmentação vascular, classificação artéria/veia e razão arteríolo-venular) como marcador de risco cardiovascular. PyTorch e OpenCV sobre DRIVE, IOSTAR, RITE e LES-AV; Dice 0,827 e Macro F1 0,963.',
       ],
       onePage: 'TCC nota 9/10: pipeline de deep learning para retinografias (Dice 0,827, Macro F1 A/V 0,963).',
@@ -529,7 +634,7 @@ const pt: Resume = {
       school: 'Universidade Paulista (UNIP)',
       place: 'São José dos Campos, SP',
       period: '2021 a 2022',
-      details: ['Projeto de software, bancos de dados, desenvolvimento web e back-end e gestão de projetos, cursado em paralelo ao trabalho.'],
+      details: ['Projeto de software, bancos de dados, desenvolvimento web e back-end e gestão de projetos, em paralelo ao trabalho.'],
     },
     {
       degree: 'Técnico em Informática integrado ao Ensino Médio',
@@ -546,19 +651,18 @@ const pt: Resume = {
       items: 'GeoPandas, ArcGIS Pro, ArcGIS Enterprise 11.5, ArcGIS Dashboards, Experience Builder, ArcGIS JS API, FME, PostgreSQL, geodatabases enterprise, ETL e modelagem de dados',
       onePage: true,
     },
-    { label: 'Back-end', items: 'FastAPI, Node.js, APIs REST, JWT, OAuth, WebSockets, MongoDB, PostgreSQL', onePage: true },
+    { label: 'Back-end', items: 'FastAPI, Node.js, Meteor, APIs REST, JWT, OAuth, WebSockets, MongoDB, PostgreSQL, Supabase, DICOM', onePage: true },
     { label: 'Front-end e mobile', items: 'React, Next.js, Redux Toolkit, Tailwind CSS, MUI, React Native (Expo), Figma', onePage: true },
-    { label: 'Cloud e DevOps', items: 'Docker, Docker Compose, NGINX, Linux, AWS (S3, Textract, EC2), DigitalOcean Spaces, Vercel, Kubernetes (básico)', onePage: true },
-    { label: 'IA e ML', items: 'PyTorch, OpenCV, NumPy, Albumentations, OCR, avaliação de LLMs, agentes de código (Claude Code, MCP)', onePage: true },
+    { label: 'Cloud e DevOps', items: 'Docker, NGINX, Linux, AWS (S3, Textract, EC2), DigitalOcean, Vercel, n8n, Kubernetes básico', onePage: true },
+    { label: 'IA e ML', items: 'Claude Code (skills, MCP, subagentes), API do Claude, PyTorch, OpenCV, OCR (Textract), avaliação de LLMs', onePage: true },
     { label: 'E-commerce e design', items: 'Shopify (Admin GraphQL, Liquid), Stripe, identidade visual, pipelines de imagem generativa' },
-    { label: 'Forma de trabalho', items: 'Scrum, Git e GitFlow, Jira, ClickUp, Bitbucket, documentação técnica, trabalho remoto com times dos EUA e offshore' },
+    { label: 'Forma de trabalho', items: 'Scrum, Git e GitFlow, Jira, ClickUp, documentação técnica, trabalho remoto com times dos EUA' },
   ],
   languages: 'Português (nativo) · Inglês (fluente, uso profissional diário)',
   courses: [
     'Python 3: Deep Dive, Part 1 (Udemy, 2025)',
     'Deep Learning Using ArcGIS (Esri, 2024)',
-    'ArcGIS Fundamentals (Esri, 2021)',
-    'AWS Summit São Paulo (2023) · Esri Developer Summit (2022)',
+    'AWS Summit São Paulo (2023)',
   ],
   files: {
     full: '/docs/Joao_Santaniello_Curriculo_PT.pdf',

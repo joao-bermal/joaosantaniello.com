@@ -301,7 +301,8 @@ body {
     break-inside: avoid;
   }
   .cv-section > h2,
-  .cv-group {
+  .cv-group,
+  .cv-row {
     break-after: avoid;
   }
 }

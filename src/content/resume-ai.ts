@@ -43,9 +43,9 @@ export const resumeAI: Resume = {
           ],
         },
         {
-          title: 'Earlier client work, written by hand',
+          title: 'Client platforms, written by hand',
           bullets: [
-            'OCR with AWS Textract for teleophthalmology; ISPDrive, a SaaS for internet providers (Next.js, FastAPI); GIS automation for Duke Energy through SBS; SAP and IBM Maximo integrations.',
+            'Main developer of EyeConnect, a teleophthalmology platform in production (Raspberry Pi DICOM gateway, OCR intake with AWS Textract), and rewrote ISPDrive, a multi-tenant storage SaaS (FastAPI, Next.js); GIS work for Duke Energy through SBS.',
           ],
         },
       ],
