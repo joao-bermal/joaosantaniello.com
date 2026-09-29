@@ -12,9 +12,9 @@ const base = resume.en;
 export const resumeAI: Resume = {
   ...base,
   meta: { title: 'CV', description: 'João Vitor Bermal Santaniello, AI product engineer.' },
-  headline: 'AI Product Engineer · Claude Code, Next.js on Vercel and E-commerce Automation',
+  headline: 'AI Product Engineer · Claude Code, Next.js on Vercel, Supabase and n8n for E-commerce',
   summary:
-    'Software engineer with six years of production experience who now builds AI-natively. Claude Code is my primary development environment: I orchestrate it to ship production software, and I read, review and correct what it generates. In 2026 I shipped two Next.js applications to production on Vercel, built and run a US e-commerce brand on Shopify with Python automation over the Admin GraphQL API and an AI image pipeline, and authored a library of nine Claude Code skills that my team at Bizpoke shares across 13 client projects, connected to ClickUp, our internal data platform and the store through MCP (including a Composio server). Before AI I wrote code by hand for years: FastAPI and Node.js services, React and Next.js front ends, Python and ArcGIS data pipelines for large utilities. MBA in Software Engineering (USP/ESALQ), fluent English, remote work with US teams.',
+    'Software engineer with six years of production experience who now builds AI-natively. Claude Code is my primary development environment: I orchestrate it to ship production software, and I read, review and correct what it generates. In 2026 I shipped two Next.js applications to production on Vercel, built and run a US e-commerce brand on Shopify with Python automation over the Admin GraphQL API and an AI image pipeline, built a live multi-brand support triage demo with Claude agents, Supabase and n8n, and authored a library of nine Claude Code skills that my team at Bizpoke shares across 13 client projects, connected to ClickUp, our internal data platform and the store through MCP (including a Composio server). Before AI I wrote FastAPI, Node.js, React and Python by hand for years, including ArcGIS pipelines for large utilities. MBA in Software Engineering (USP/ESALQ), fluent English, remote work with US teams.',
   summaryShort:
     'Software engineer with six years of production experience who now builds AI-natively, with Claude Code as my primary environment. In 2026 I shipped two Next.js apps to production on Vercel, built and run a US Shopify brand with Admin GraphQL automation and an AI image pipeline, and authored nine Claude Code skills my team shares across 13 client projects, connected to ClickUp through MCP. Years of hand-written FastAPI, Node.js, React and Python before AI.',
   experience: [
@@ -45,14 +45,13 @@ export const resumeAI: Resume = {
         {
           title: 'Earlier client work, written by hand',
           bullets: [
-            'OCR exam processing with AWS Textract and S3 for teleophthalmology; ISPDrive, a SaaS for internet providers (Next.js, FastAPI, DigitalOcean Spaces); GIS automation for Duke Energy and North Las Vegas through SBS; SAP, IBM Maximo and Schneider Electric integrations.',
+            'OCR with AWS Textract for teleophthalmology; ISPDrive, a SaaS for internet providers (Next.js, FastAPI); GIS automation for Duke Energy through SBS; SAP and IBM Maximo integrations.',
           ],
         },
       ],
       onePage: [
         'Authored nine shared Claude Code skills and a root CLAUDE.md inherited by 13 Aegea projects: project bootstrap, ArcGIS API client, dashboard editing, delivery documents and status reporting.',
         'Connected Claude Code through MCP to ClickUp (status reports on a scheduled daily routine) and to BizpokeBI, our geospatial data platform, whose bizpoke MCP server I helped build.',
-        'Built an OAuth2 ArcGIS Enterprise REST client with automatic backups and production/staging separation, letting the agent edit dashboards in bulk safely.',
         'Cut a recurring geospatial workflow from 3+ hours to about 20 minutes with a reusable GeoPandas tool, and led DOMO front-end and mobile delivery (Equatorial Energia) in two-week sprints.',
       ],
     },
@@ -64,8 +63,7 @@ export const resumeAI: Resume = {
       groups: [
         {
           bullets: [
-            'Wrote complex Python problems with reference solutions, test suites and failure analyses for LiveCodeBench and BigCodeBench, each designed to break at least 2 of 4 frontier models (Qwen, DeepSeek, Claude Sonnet, Nova): the same habit I use to catch what AI gets wrong in my own code.',
-            'Reviewed prompts, specifications and grading criteria for code generation, self-repair and execution tasks, working fully in English with global teams.',
+            'Wrote Python problems with reference solutions and tests for LiveCodeBench and BigCodeBench, each designed to break at least 2 of 4 frontier models, and reviewed prompts and grading criteria: the same habit I use to catch what AI gets wrong in my own code.',
           ],
         },
       ],
@@ -82,16 +80,27 @@ export const resumeAI: Resume = {
   ],
   projects: [
     {
+      name: 'Triage Desk',
+      role: 'Multi-brand AI support triage · Claude, Supabase, n8n · 2026',
+      text: 'Live demo of AI customer support for several D2C brands. n8n webhooks ingest messages idempotently and call a Supabase Edge Function where a Claude orchestrator (SDK tool runner, structured outputs, prompt caching) looks up the order and consults policy and catalog sub-agents, returning priority, an escalation decision and a policy-grounded draft that staff approve in a Next.js dashboard. Brand isolation via Postgres RLS and column grants, covered by 14 pgTAP tests; HMAC verified Shopify sync; error workflow. About US$0.03 per ticket; technical design doc.',
+      links: [
+        { label: 'triage.joaosantaniello.com', href: 'https://triage.joaosantaniello.com' },
+        { label: 'Code: github.com/joao-bermal/triage-desk', href: 'https://github.com/joao-bermal/triage-desk' },
+      ],
+      printAllLinks: true,
+      onePage: 'Claude agent with sub-agents in a Supabase Edge Function, n8n workflows, RLS with pgTAP tests, Next.js on Vercel.',
+    },
+    {
       name: 'Miau Atelier',
       role: 'D2C e-commerce brand, built and run with Claude Code · 2026',
-      text: 'A cat furniture brand for the US market: Shopify store in USD with Stripe, connected to Claude through a Composio MCP server; Python tooling over the Shopify Admin GraphQL API for products, media, metafields, collections, policies and theme files; an AI art direction pipeline (system prompt, per-image prompts from a JSON mapping, contact sheets, automated publishing) behind 15 live products; conversion work (buy-now flow, size and fit metafields, FAQ, abandoned checkout emails, reviews) and Google Merchant Center listings.',
+      text: 'A cat furniture brand for the US market: Shopify store in USD with Stripe, connected to Claude through a Composio MCP server; Python tooling over the Admin GraphQL API for products, media, metafields, policies and theme files; an AI art direction pipeline behind 15 live products; conversion work (buy-now flow, size and fit metafields, abandoned checkout emails, reviews) and Google Merchant Center.',
       links: [{ label: 'miauatelier.com', href: 'https://miauatelier.com' }],
       onePage: 'US Shopify brand run with Claude Code and a Composio MCP server: Admin GraphQL automation, an AI image pipeline behind 15 live products, Stripe and conversion work.',
     },
     {
       name: 'joaosantaniello.com',
       role: 'Next.js 16 on Vercel · 2026',
-      text: 'Migrated a static site to Next.js on a feature branch and shipped it through Vercel preview and production with a custom domain: PT and EN routes with edge language detection by browser language and country, light and dark theme, one content source that renders the web CV and prints ATS PDFs with Playwright with automatic page limit checks, and generated print flyers with QR codes.',
+      text: 'Migrated a static site to Next.js through Vercel preview and production with a custom domain: PT and EN routes with edge language detection, light and dark theme, and one content source that renders the web CV and prints ATS PDFs with Playwright.',
       links: [
         { label: 'joaosantaniello.com', href: 'https://joaosantaniello.com' },
         { label: 'Code: github.com/joao-bermal/joaosantaniello.com', href: 'https://github.com/joao-bermal/joaosantaniello.com' },
@@ -102,25 +111,25 @@ export const resumeAI: Resume = {
     {
       name: 'NAMMAN',
       role: 'Next.js on Vercel · 2026',
-      text: 'A browser-only app that syncs Neural Amp Modeler profiles from the TONE3000 API to the user’s disk: OAuth 2.0 with PKCE, File System Access API, IndexedDB history, retries with exponential backoff and throttled bulk downloads. Iterated from a Supabase and Prisma backend to a database-free architecture; 40 commits in five weeks.',
+      text: 'Browser-only app that syncs Neural Amp Modeler profiles from the TONE3000 API to disk: OAuth 2.0 with PKCE, File System Access API, IndexedDB, backoff and throttled bulk downloads. Iterated from a Supabase and Prisma backend to a database-free design.',
       links: [
         { label: 'namman.vercel.app', href: 'https://namman.vercel.app/' },
         { label: 'Code: github.com/joao-bermal/NAMMAN', href: 'https://github.com/joao-bermal/NAMMAN' },
       ],
       printAllLinks: true,
-      onePage: 'Browser-only Next.js app: OAuth 2.0 PKCE, File System Access API, backoff and throttled bulk downloads.',
     },
   ],
   skills: [
-    { label: 'AI engineering', items: 'Claude Code as primary environment, custom skills, CLAUDE.md project context, MCP servers and connectors (internal bizpoke server, ClickUp, Composio for the Shopify store), browser automation, scheduled agent routines, prompt engineering, LLM evaluation', onePage: true },
+    { label: 'AI engineering', items: 'Claude Code as primary environment, Claude API (tool runner, structured outputs, sub-agents, prompt caching), custom skills, CLAUDE.md project context, MCP servers and connectors (internal bizpoke server, ClickUp, Composio for the Shopify store), browser automation, scheduled agent routines, prompt engineering, LLM evaluation', onePage: true },
+    { label: 'Automation', items: 'n8n (webhooks, retries, schedules, error workflows), Docker Compose, pg_net and pg_cron', onePage: true },
     { label: 'Web and delivery', items: 'Next.js, React, TypeScript, Tailwind CSS, Vercel (previews, production, domains, env vars), GitHub (branches, pull requests), Agile sprints', onePage: true },
-    { label: 'Data and APIs', items: 'PostgreSQL, SQL, Supabase (Postgres) with Prisma ORM, REST, GraphQL, OAuth 2.0 and PKCE, JSON, FastAPI, Node.js', onePage: true },
+    { label: 'Data and APIs', items: 'PostgreSQL, SQL, Supabase (RLS, Edge Functions, Realtime) and Prisma ORM, REST, GraphQL, OAuth 2.0 and PKCE, FastAPI, Node.js', onePage: true },
     { label: 'E-commerce', items: 'Shopify (Admin GraphQL, Liquid themes, metafields, Messaging automations), Stripe, Google Merchant Center, Judge.me', onePage: true },
-    { label: 'Data and GIS', items: 'Python, GeoPandas, ArcGIS Enterprise and Dashboards, FME' },
-    { label: 'Ways of working', items: 'Agile sprints, specs and acceptance tests, technical documentation, remote work with US teams' },
   ],
   education: base.education.map((e, i) =>
     i === 0 ? { ...e, details: [e.details[0], `${e.details[1]} Code: github.com/joao-bermal/retinal-avr-pipeline.`] } : e,
   ),
+  // Keep the courses to one line so the tailored CV stays within two pages.
+  courses: base.courses.filter((c) => /Python 3|AWS Summit|Esri Developer/.test(c)),
   files: { full: '', onePage: '' },
 };
