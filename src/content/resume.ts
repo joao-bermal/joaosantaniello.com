@@ -400,11 +400,17 @@ const en: Resume = {
       place: 'Piracicaba, SP',
       period: '2024 to 2026',
       details: [
-        'Coursework in software architecture, APIs, cloud, Docker and Kubernetes, DDD, observability, testing and AI.',
+        'Coursework in back-end and front-end architecture, APIs and micro-frontends, cloud and Kubernetes, clean architecture and DDD, machine learning and model deployment, observability and TDD.',
         'Thesis graded 9/10: the retinal AVR pipeline under Selected projects.',
       ],
       extra: [
-        'Coursework also covered micro-frontends, UX, Big Data, leadership and change management.',
+        'Back-end and front-end engineering with modern web architectures, APIs and micro-frontends.',
+        'Cloud computing (IaaS, PaaS, SaaS) and container orchestration with Docker and Kubernetes.',
+        'Agile methods, clean architecture and domain-driven design.',
+        'Machine learning, Big Data and AI, including how models are deployed.',
+        'UX design, design thinking and user-centered development.',
+        'APIs and message queues, observability, and software testing with TDD.',
+        'Also blockchain, digital law (LGPD), change management and leading high-performance teams.',
         'Thesis advisor: Prof. Dr. Heinrich da Solidade Santos.',
       ],
       onePage: 'Thesis graded 9/10: deep learning pipeline for retinal images (vessel Dice 0.79 on held-out data, optic disc error cut from 358 to 11 px).',
@@ -696,7 +702,7 @@ const pt: Resume = {
     {
       name: 'Pipeline de AVR em retinografias',
       role: 'TCC do MBA em deep learning · 2025 a 2026',
-      text: 'Pipeline em PyTorch que estima a razão arteríolo-venular, marcador de risco cardiovascular, a partir de retinografias: uma U-Net segmenta os vasos (Dice 0,79 em imagens do DRIVE fora do treino), uma rede com ResNet-50 separa artérias de veias e um modelo de disco óptico reduziu o erro do centro de 358 para 11 px para medir os calibres pelo método de Knudtson.',
+      text: 'Pipeline em PyTorch que estima a razão arteríolo-venular, marcador de risco cardiovascular, em retinografias: uma U-Net segmenta os vasos (Dice 0,79 em imagens do DRIVE fora do treino), uma rede com ResNet-50 separa artérias de veias e um detector de disco óptico reduziu o erro do centro de 358 para 11 px para medir os calibres por Knudtson.',
       links: [{ label: 'GitHub', href: 'https://github.com/joao-bermal/retinal-avr-pipeline' }],
       details: [
         'U-Net aprimorada com blocos residuais, batch normalization e perda BCE mais Dice, após pré-processamento com canal verde, CLAHE, correção gamma e Albumentations.',
@@ -765,11 +771,17 @@ const pt: Resume = {
       place: 'Piracicaba, SP',
       period: '2024 a 2026',
       details: [
-        'Arquitetura de software, APIs, cloud, Docker e Kubernetes, DDD, observabilidade, testes e IA.',
+        'Arquitetura de back-end e front-end, APIs e micro-frontends, cloud e Kubernetes, clean architecture e DDD, machine learning e deploy de modelos, observabilidade e TDD.',
         'TCC com nota 9/10: o pipeline de AVR em retinografias, em Projetos selecionados.',
       ],
       extra: [
-        'O curso também cobriu micro-frontends, UX, Big Data, liderança e gestão da mudança.',
+        'Engenharia de back-end e front-end com arquiteturas web modernas, APIs e micro-frontends.',
+        'Computação em nuvem (IaaS, PaaS, SaaS) e orquestração de contêineres com Docker e Kubernetes.',
+        'Métodos ágeis, clean architecture e domain-driven design.',
+        'Machine learning, Big Data e IA, incluindo como modelos vão para produção.',
+        'UX design, design thinking e desenvolvimento centrado no usuário.',
+        'APIs e filas de mensagens, observabilidade e testes de software com TDD.',
+        'Também blockchain, direito digital (LGPD), gestão da mudança e liderança de times de alta performance.',
         'Orientador do TCC: Prof. Dr. Heinrich da Solidade Santos.',
       ],
       onePage: 'TCC nota 9/10: pipeline de deep learning para retinografias (Dice 0,79 fora do treino, erro do disco óptico de 358 para 11 px).',
