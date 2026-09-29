@@ -109,7 +109,7 @@ const en: Resume = {
   headline: 'Software Engineer · Full-Stack, AI-Augmented Delivery and Geospatial Data',
   location: 'São José dos Campos, SP, Brazil',
   summary:
-    'Software engineer with six years of production experience across water utilities, energy, healthcare and telecom. I build full-stack products and data pipelines with FastAPI, Node.js, React, Next.js, Python and ArcGIS. I was the main developer of EyeConnect, a teleophthalmology platform in production, from its clinic DICOM gateway to OCR exam intake, rewrote ISPDrive, a multi-tenant SaaS for internet providers, and build the geospatial analyses behind expansion studies at Aegea, one of the largest sanitation groups in Brazil. Claude Code is now my primary environment. MBA in Software Engineering (USP/ESALQ, thesis 9/10), fluent English with US teams.',
+    'Software engineer with six years of production experience across water utilities, energy, healthcare and telecom. I build full-stack products and data pipelines with FastAPI, Node.js, React, Next.js, Python and ArcGIS. I was the main developer of EyeConnect, a teleophthalmology platform in production, from its clinic DICOM gateway to OCR exam intake, rewrote ISPDrive, a multi-tenant SaaS for internet providers, and build the geospatial analyses behind expansion studies at Aegea, one of the largest sanitation groups in Brazil. Claude Code is now my primary environment. MBA in Software Engineering (USP/ESALQ, deep learning thesis graded 9/10), fluent English with US teams.',
   summaryShort:
     'Software engineer with six years of production experience in water utilities, energy, healthcare and telecom. Main developer of EyeConnect, a teleophthalmology platform in production, and of the ISPDrive rewrite. For Aegea I cut a geospatial workflow from 3+ hours to about 20 minutes. AI-native with Claude Code and MCP. MBA (USP/ESALQ, thesis 9/10), fluent English.',
   highlights: [
@@ -284,6 +284,21 @@ const en: Resume = {
       onePage: 'Live demo: Claude agent with sub-agents in a Supabase Edge Function, n8n workflows, RLS with pgTAP tests, Next.js on Vercel.',
     },
     {
+      name: 'Retinal AVR pipeline',
+      role: 'MBA thesis in deep learning · 2025 to 2026',
+      text: 'PyTorch pipeline that estimates the arteriolar-to-venular ratio, a cardiovascular risk marker, from retinal photographs: a U-Net segments vessels (Dice 0.79 on held-out DRIVE images), a ResNet-50 network separates arteries from veins, and an optic disc model cut the disc center error from 358 to 11 px for Knudtson caliber measurement.',
+      links: [{ label: 'GitHub', href: 'https://github.com/joao-bermal/retinal-avr-pipeline' }],
+      details: [
+        'Enhanced U-Net with residual blocks, batch normalization and a BCE plus Dice loss, after preprocessing with the green channel, CLAHE, gamma correction and Albumentations.',
+        'Artery and vein network with a ResNet-50 encoder, Squeeze-and-Excitation and a vessel constraint module, trained on IOSTAR and RITE.',
+        'Optic disc U-Net with a classical computer vision fallback: median center error of 11.1 px on held-out IOSTAR images, against 357.9 px for the image center assumed in the original thesis.',
+        'CRAE and CRVE by iterative Knudtson combination inside the peripapillary Zone B, AVR = CRAE / CRVE and a risk category.',
+        'Reproducible runs on an AMD RX 6800XT with ROCm and a metrics document that states the known limits (a held-out split for the artery and vein model is the next run); a FastAPI endpoint and a Next.js upload page.',
+        'Graded 9/10, with potential use in automated screening and teleophthalmology.',
+      ],
+      stack: ['Python', 'PyTorch', 'OpenCV', 'Albumentations', 'ROCm', 'FastAPI', 'Next.js'],
+    },
+    {
       name: 'Miau Atelier',
       role: 'Founder, designer and developer · 2026',
       text: 'A cat furniture brand for the US market, built end to end: brand identity, Shopify store in USD with Stripe, Python automation over the Admin GraphQL API and an AI image pipeline for product photography.',
@@ -302,25 +317,11 @@ const en: Resume = {
     {
       name: 'NAMMAN',
       role: 'Next.js on Vercel · 2026',
-      text: 'A browser-only app that syncs Neural Amp Modeler profiles from the TONE3000 API to the user’s disk: OAuth 2.0 with PKCE, File System Access API, IndexedDB history, retries with backoff and throttled bulk downloads, with no server.',
+      text: 'Browser-only app that syncs Neural Amp Modeler profiles from the TONE3000 API to disk: OAuth 2.0 with PKCE, File System Access API, IndexedDB, backoff and throttled bulk downloads, no server.',
       links: [
         { label: 'namman.vercel.app', href: 'https://namman.vercel.app/' },
         { label: 'GitHub', href: 'https://github.com/joao-bermal/NAMMAN' },
       ],
-    },
-    {
-      name: 'Retinal AVR pipeline',
-      role: 'MBA thesis · 2025',
-      text: 'A computational model that analyzes retinal photographs to estimate the arteriolar-to-venular ratio, a marker associated with cardiovascular risk.',
-      links: [{ label: 'GitHub', href: 'https://github.com/joao-bermal/retinal-avr-pipeline' }],
-      details: [
-        'Three stages: vessel segmentation, artery and vein classification and automated AVR computation.',
-        'Scientific preprocessing with green channel extraction, CLAHE, gamma correction, normalization and Albumentations augmentation.',
-        'Trained and evaluated on DRIVE, IOSTAR, RITE and LES-AV, checking generalization across datasets: Dice 0.827 in segmentation and macro F1 0.963 in A/V classification.',
-        'Graded 9/10, with potential use in automated screening, teleophthalmology and early detection of hypertension.',
-      ],
-      stack: ['Python', 'PyTorch', 'OpenCV', 'NumPy', 'Albumentations'],
-      webOnly: true,
     },
   ],
   education: [
@@ -331,23 +332,23 @@ const en: Resume = {
       period: '2024 to 2026',
       details: [
         'Coursework in software architecture, APIs, cloud, Docker and Kubernetes, DDD, observability, testing and AI.',
-        'Thesis (9/10): a three-stage deep learning pipeline for retinal photographs (vessel segmentation, artery/vein classification and arteriolar-to-venular ratio) as a cardiovascular risk marker. PyTorch and OpenCV on DRIVE, IOSTAR, RITE and LES-AV; Dice 0.827 and macro F1 0.963.',
+        'Thesis graded 9/10: the retinal AVR pipeline under Selected projects.',
       ],
-      onePage: 'Thesis graded 9/10: deep learning pipeline for retinal images (Dice 0.827, A/V macro F1 0.963).',
+      onePage: 'Thesis graded 9/10: deep learning pipeline for retinal images (vessel Dice 0.79 on held-out data, optic disc error cut from 358 to 11 px).',
     },
     {
       degree: 'Associate degree in Systems Analysis and Development',
       school: 'Universidade Paulista (UNIP)',
       place: 'São José dos Campos, SP',
       period: '2021 to 2022',
-      details: ['Software design, databases, web and back-end development and project management, completed while working full time.'],
+      details: ['Software design, databases, web and back-end development, completed while working full time.'],
     },
     {
       degree: 'Technical Program in Computing, with high school',
       school: 'Colégio Técnico Antônio Teixeira Fernandes',
       place: 'São José dos Campos, SP',
       period: '2018 to 2020',
-      details: ['Programming, web development and algorithms, including team programming competitions.'],
+      details: [],
     },
   ],
   skills: [
@@ -359,8 +360,8 @@ const en: Resume = {
     },
     { label: 'Back end', items: 'FastAPI, Node.js, Meteor, REST APIs, JWT, OAuth, WebSockets, MongoDB, PostgreSQL, Supabase, DICOM', onePage: true },
     { label: 'Front end and mobile', items: 'React, Next.js, Redux Toolkit, Tailwind CSS, MUI, React Native (Expo), Figma', onePage: true },
-    { label: 'Cloud and DevOps', items: 'Docker, NGINX, Linux, AWS (S3, Textract, EC2, CloudWatch), DigitalOcean, Vercel, n8n, basic Kubernetes', onePage: true },
-    { label: 'AI and ML', items: 'Claude Code (skills, MCP, sub-agents), Claude API, PyTorch, OpenCV, OCR with AWS Textract, LLM evaluation', onePage: true },
+    { label: 'Cloud and DevOps', items: 'Docker, NGINX, Linux, AWS (S3, Textract, EC2), DigitalOcean, Vercel, n8n, basic Kubernetes', onePage: true },
+    { label: 'AI and ML', items: 'Claude Code (skills, MCP, sub-agents), Claude API, PyTorch, OpenCV, OCR (Textract), LLM evaluation', onePage: true },
     { label: 'E-commerce and design', items: 'Shopify (Admin GraphQL, Liquid), Stripe, brand identity, generative image pipelines' },
     { label: 'Ways of working', items: 'Scrum, Git and GitFlow, Jira, ClickUp, technical documentation, remote work with US teams' },
   ],
@@ -405,7 +406,7 @@ const pt: Resume = {
   headline: 'Engenheiro de Software · Full-Stack, Entrega com IA e Dados Geoespaciais',
   location: 'São José dos Campos, SP',
   summary:
-    'Engenheiro de software com seis anos de experiência em produção nos setores de saneamento, energia, saúde e telecom. Construo produtos full-stack e pipelines de dados com FastAPI, Node.js, React, Next.js, Python e ArcGIS. Fui o principal desenvolvedor do EyeConnect, plataforma de teleoftalmologia em produção, do gateway DICOM das clínicas à entrada de exames por OCR, reescrevi o ISPDrive, SaaS multi-tenant para provedores de internet, e construo as análises geoespaciais dos estudos de expansão da Aegea, um dos maiores grupos de saneamento do Brasil. Hoje o Claude Code é meu principal ambiente de desenvolvimento. MBA em Engenharia de Software (USP/ESALQ, TCC 9/10) e inglês fluente com times dos EUA.',
+    'Engenheiro de software com seis anos de experiência em produção nos setores de saneamento, energia, saúde e telecom. Construo produtos full-stack e pipelines de dados com FastAPI, Node.js, React, Next.js, Python e ArcGIS. Fui o principal desenvolvedor do EyeConnect, plataforma de teleoftalmologia em produção, do gateway DICOM das clínicas à entrada de exames por OCR, reescrevi o ISPDrive, SaaS multi-tenant para provedores de internet, e construo as análises geoespaciais dos estudos de expansão da Aegea, um dos maiores grupos de saneamento do Brasil. Hoje o Claude Code é meu principal ambiente de desenvolvimento. MBA em Engenharia de Software (USP/ESALQ, TCC em deep learning com nota 9/10) e inglês fluente com times dos EUA.',
   summaryShort:
     'Engenheiro de software com seis anos de experiência em produção em saneamento, energia, saúde e telecom. Principal desenvolvedor do EyeConnect (teleoftalmologia) e da reescrita do ISPDrive. Na Aegea, reduzi um fluxo geoespacial de 3+ horas para cerca de 20 minutos. IA via Claude Code e MCP. MBA (USP/ESALQ, TCC 9/10), inglês fluente.',
   highlights: [
@@ -578,6 +579,21 @@ const pt: Resume = {
       onePage: 'Demo publicada: agente Claude com subagentes numa Edge Function do Supabase, n8n, RLS com pgTAP e Next.js na Vercel.',
     },
     {
+      name: 'Pipeline de AVR em retinografias',
+      role: 'TCC do MBA em deep learning · 2025 a 2026',
+      text: 'Pipeline em PyTorch que estima a razão arteríolo-venular, marcador de risco cardiovascular, a partir de retinografias: uma U-Net segmenta os vasos (Dice 0,79 em imagens do DRIVE fora do treino), uma rede com ResNet-50 separa artérias de veias e um modelo de disco óptico reduziu o erro do centro de 358 para 11 px para medir os calibres pelo método de Knudtson.',
+      links: [{ label: 'GitHub', href: 'https://github.com/joao-bermal/retinal-avr-pipeline' }],
+      details: [
+        'U-Net aprimorada com blocos residuais, batch normalization e perda BCE mais Dice, após pré-processamento com canal verde, CLAHE, correção gamma e Albumentations.',
+        'Rede de artérias e veias com encoder ResNet-50, Squeeze-and-Excitation e um módulo de restrição vascular, treinada em IOSTAR e RITE.',
+        'U-Net de disco óptico com uma heurística clássica de visão computacional como alternativa: erro mediano do centro de 11,1 px em imagens do IOSTAR fora do treino, contra 357,9 px do centro da imagem assumido no TCC original.',
+        'CRAE e CRVE pela combinação iterativa de Knudtson dentro da Zona B peripapilar, AVR = CRAE / CRVE e uma categoria de risco.',
+        'Treinos reproduzíveis em uma AMD RX 6800XT com ROCm e um documento de métricas que declara os limites conhecidos (um conjunto separado para a rede de artérias e veias é a próxima rodada); um endpoint em FastAPI e uma página de upload em Next.js.',
+        'Nota 9/10, com potencial para triagem automatizada e teleoftalmologia.',
+      ],
+      stack: ['Python', 'PyTorch', 'OpenCV', 'Albumentations', 'ROCm', 'FastAPI', 'Next.js'],
+    },
+    {
       name: 'Miau Atelier',
       role: 'Fundador, designer e desenvolvedor · 2026',
       text: 'Marca de móveis para gatos para o mercado americano, construída de ponta a ponta: identidade visual, loja Shopify em dólar com Stripe, automações em Python sobre a Admin GraphQL API e um pipeline de IA para fotografia de produto.',
@@ -596,25 +612,11 @@ const pt: Resume = {
     {
       name: 'NAMMAN',
       role: 'Next.js na Vercel · 2026',
-      text: 'App que roda inteiro no navegador e sincroniza perfis do Neural Amp Modeler da API do TONE3000 com o disco do usuário: OAuth 2.0 com PKCE, File System Access API, histórico em IndexedDB, novas tentativas com backoff e downloads em lote controlados, sem servidor.',
+      text: 'App que roda só no navegador e sincroniza perfis do Neural Amp Modeler da API do TONE3000 com o disco: OAuth 2.0 com PKCE, File System Access API, IndexedDB, backoff e downloads em lote controlados, sem servidor.',
       links: [
         { label: 'namman.vercel.app', href: 'https://namman.vercel.app/' },
         { label: 'GitHub', href: 'https://github.com/joao-bermal/NAMMAN' },
       ],
-    },
-    {
-      name: 'Pipeline de AVR em retinografias',
-      role: 'TCC do MBA · 2025',
-      text: 'Modelo computacional que analisa retinografias para estimar a razão arteríolo-venular, marcador associado ao risco cardiovascular.',
-      links: [{ label: 'GitHub', href: 'https://github.com/joao-bermal/retinal-avr-pipeline' }],
-      details: [
-        'Três etapas: segmentação vascular, classificação artéria/veia e cálculo automatizado da AVR.',
-        'Pré-processamento científico com canal verde, CLAHE, correção gamma, normalização e augmentation com Albumentations.',
-        'Treinado e avaliado em DRIVE, IOSTAR, RITE e LES-AV, verificando a generalização entre bases: Dice 0,827 na segmentação e Macro F1 0,963 na classificação A/V.',
-        'Nota 9/10, com potencial para triagem automatizada, teleoftalmologia e detecção precoce de hipertensão.',
-      ],
-      stack: ['Python', 'PyTorch', 'OpenCV', 'NumPy', 'Albumentations'],
-      webOnly: true,
     },
   ],
   education: [
@@ -625,23 +627,23 @@ const pt: Resume = {
       period: '2024 a 2026',
       details: [
         'Arquitetura de software, APIs, cloud, Docker e Kubernetes, DDD, observabilidade, testes e IA.',
-        'TCC (nota 9/10): pipeline de deep learning em três etapas para retinografias (segmentação vascular, classificação artéria/veia e razão arteríolo-venular) como marcador de risco cardiovascular. PyTorch e OpenCV sobre DRIVE, IOSTAR, RITE e LES-AV; Dice 0,827 e Macro F1 0,963.',
+        'TCC com nota 9/10: o pipeline de AVR em retinografias, em Projetos selecionados.',
       ],
-      onePage: 'TCC nota 9/10: pipeline de deep learning para retinografias (Dice 0,827, Macro F1 A/V 0,963).',
+      onePage: 'TCC nota 9/10: pipeline de deep learning para retinografias (Dice 0,79 fora do treino, erro do disco óptico de 358 para 11 px).',
     },
     {
       degree: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
       school: 'Universidade Paulista (UNIP)',
       place: 'São José dos Campos, SP',
       period: '2021 a 2022',
-      details: ['Projeto de software, bancos de dados, desenvolvimento web e back-end e gestão de projetos, em paralelo ao trabalho.'],
+      details: ['Projeto de software, bancos de dados e desenvolvimento web e back-end, em paralelo ao trabalho.'],
     },
     {
       degree: 'Técnico em Informática integrado ao Ensino Médio',
       school: 'Colégio Técnico Antônio Teixeira Fernandes',
       place: 'São José dos Campos, SP',
       period: '2018 a 2020',
-      details: ['Programação, desenvolvimento web e algoritmos, incluindo competições de programação em equipe.'],
+      details: [],
     },
   ],
   skills: [

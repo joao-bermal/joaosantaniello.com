@@ -136,6 +136,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 function Bullets({ items }: { items: string[] }) {
+  if (!items.length) return null;
   return (
     <ul className="cv-bullets">
       {items.map((b) => (

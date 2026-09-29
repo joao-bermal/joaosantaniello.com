@@ -246,6 +246,7 @@ function Group({ group, stackLabel, boxed }: { group: ResumeGroup; stackLabel: s
 }
 
 function Bullets({ items, className }: { items: string[]; className?: string }) {
+  if (!items.length) return null;
   return (
     <ul className={cx('mt-4 flex flex-col gap-2.5 text-[15px] text-ink-2', className)}>
       {items.map((b) => (

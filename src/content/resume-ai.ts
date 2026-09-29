@@ -127,7 +127,15 @@ export const resumeAI: Resume = {
     { label: 'E-commerce', items: 'Shopify (Admin GraphQL, Liquid themes, metafields, Messaging automations), Stripe, Google Merchant Center, Judge.me', onePage: true },
   ],
   education: base.education.map((e, i) =>
-    i === 0 ? { ...e, details: [e.details[0], `${e.details[1]} Code: github.com/joao-bermal/retinal-avr-pipeline.`] } : e,
+    i === 0
+      ? {
+          ...e,
+          details: [
+            e.details[0],
+            'Thesis (9/10): PyTorch pipeline that estimates the arteriolar-to-venular ratio from retinal photographs: vessel U-Net (Dice 0.79 held out), ResNet-50 artery and vein network, optic disc model that cut the center error from 358 to 11 px. Code: github.com/joao-bermal/retinal-avr-pipeline.',
+          ],
+        }
+      : e,
   ),
   // Keep the courses to one line so the tailored CV stays within two pages.
   courses: base.courses.filter((c) => /Python 3|AWS Summit|Esri Developer/.test(c)),
