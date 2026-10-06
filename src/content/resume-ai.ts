@@ -59,7 +59,7 @@ export const resumeAI: Resume = {
       role: 'AI Coding Benchmark Contributor (freelance)',
       org: 'Alignerr',
       place: 'Remote',
-      period: 'May 2025 to Present',
+      period: 'May 2025 to Oct 2025',
       groups: [
         {
           bullets: [

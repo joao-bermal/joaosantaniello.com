@@ -262,7 +262,7 @@ const en: Resume = {
       role: 'AI Coding Benchmark Contributor (freelance)',
       org: 'Alignerr',
       place: 'Remote',
-      period: 'May 2025 to Present',
+      period: 'May 2025 to Oct 2025',
       stack: ['Python', 'Test design', 'LLM evaluation', 'Technical writing'],
       groups: [
         {
@@ -635,7 +635,7 @@ const pt: Resume = {
       role: 'Colaborador de Benchmarks de Código para IA (freelancer)',
       org: 'Alignerr',
       place: 'Remoto',
-      period: 'Mai 2025 até o momento',
+      period: 'Mai 2025 a Out 2025',
       stack: ['Python', 'Design de testes', 'Avaliação de LLMs', 'Escrita técnica'],
       groups: [
         {
